@@ -18,20 +18,46 @@
 <!-- <body class="loading"> -->
 
 <body>
+    <!-- define svg shapes for later use -->
+    <svg style="display: none;">
+        <defs>
+
+
+            <!-- <symbol id="svg-path-rectangle" viewBox="0 0 100 100">
+                <path d="M 0 0 H 100 V 100 H 0 L 0 0" />
+            </symbol>
+            <symbol id="deco1" viewBox="0 0 500 500">
+                <path
+                d="M 161,54.69 C 230.4,4.986 303.7,8.661 414.4,92.19 465.7,130.9 432.3,211.4 460,279.5 481,331.2 449.7,430.4 381.1,427 287.1,422.3 172.4,503.8 99.27,444.6 21.03,381.1 10.32,258.3 55.25,145.6 73.73,99.3 129.3,77.36 161,54.69 Z" />
+            </symbol> -->
+
+            <symbol id="blob" viewBox="0 0 237.61 260.72">
+                <path class="cls-1"
+                    d="M51.84.71C13.59,5.32-1.83,17.64,13.5,41s52.72,39.78,31,62.94S-24,146.24,15.1,169.08s68.69-10.86,69.65,28.75,20.61,94.57,40.57,39.94,4.16-81.47,52.4-74.44,71.73,12.78,54-16.3S190.5,85.85,209,63.33s20-42.49-8.63-43.45-60.54,29.71-87.22,3.19S61.11-.41,51.84.71Z" />
+                <path class="cls-2"
+                    d="M54.08,6C15.82,10.6,24.21,13,39.54,36.33S111.75,66.68,90,89.85,2.8,125,41.94,147.83s57.82-24.6,58.78,15-5.59,93.45,14.38,38.82-10.54-74.44,37.7-67.42,68.37,31.95,50.64,2.88-51.28-45-32.75-67.57,55.75-39.46,27.16-40.42-66.3,28.12-93,1.6S63.34,4.86,54.08,6Z" />
+            </symbol>
+            <symbol id="tutorial-blob" viewBox="0 0 237.61 260.72">
+                <path
+                    d="M51.84.71C13.59,5.32-1.83,17.64,13.5,41s52.72,39.78,31,62.94S-24,146.24,15.1,169.08s68.69-10.86,69.65,28.75,20.61,94.57,40.57,39.94,4.16-81.47,52.4-74.44,71.73,12.78,54-16.3S190.5,85.85,209,63.33s20-42.49-8.63-43.45-60.54,29.71-87.22,3.19S61.11-.41,51.84.71Z" />
+            </symbol>
+        </defs>
+
+        <!-- <rect class="main-rect" width="96vw" height="96vh" /> -->
+        <!-- <circle class="main-circ" cx="50" cy="50" r="40" /> -->
+    </svg>
+
     <div class="first-page">
         <header>
-            <div id="header-rectangle">
-                <div class="wrapper">
-                <div id="header-circle">
-                    <h1>The Cloak Room</h1>
-                    <p>Upholstery & Design</p>
-                    <p>Minneapolis, MN</p>
-                </div>
-                    <img src="../images/cloak-room_logo.svg" title="The Cloak Room" alt="The Cloak Room" id="main-logo" />
-                </div>
-            </div>
-            
-            
+            <h1>The Cloak Room</h1>
+            <p>Upholstery & Design</p>
+            <p>Minneapolis, MN</p>
+            <img src="../images/cloak-room_logo.svg" title="The Cloak Room" alt="The Cloak Room" />
+            <svg class="big-rectangle">
+                <use xlink:href="#tutorial-blob" class="svg-use" />
+            </svg>
+
+
         </header>
     </div>
     <!-- <main>

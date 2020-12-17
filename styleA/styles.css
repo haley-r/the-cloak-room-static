@@ -1,3 +1,14 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+
 body {
     background-color: var(--a-black);
     color: var(--a-gold);
@@ -10,4 +21,78 @@ header h1, header p{
 
 a{
     color: inherit;
+}
+
+.first-page{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    padding: 1vh 1vw;
+}
+
+header{
+    height: 100%;
+}
+
+#header-rectangle {
+    border: 2px solid var(--a-gold);
+    width: 100%;
+    height: 100%;
+    padding: 2vh 2vw;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#header-circle {
+    border: 2px solid var(--a-gold);
+    border-radius: 50%;
+    background-image: url(../images/reddish-velvet.jpg);
+    background-color: teal;
+    background-blend-mode: exclusion;
+    background-size: cover;
+    opacity: 1;
+    transition: opacity 2s ease-out, scale 2s ease-in-out;
+    scale: 1;
+    position: relative;
+}
+@media all and (orientation:portrait) {
+    #header-rectangle{
+        flex-direction: column;
+    }
+    #header-circle {
+    width: 93vw;
+    height: 93vw;
+    }
+    #main-logo{
+        width: 40vw;
+        bottom: 14vw;
+        left: 7vw;
+        position: absolute;
+    }
+
+}
+@media all and (orientation:landscape) {
+    #header-rectangle{
+        flex-direction: row;
+    }
+    #header-circle {
+    width: 93vh;
+    height: 93vh;
+ }
+ #main-logo{
+        width: 40vh;
+        bottom: 14vh;
+        left: 7vh;
+        position: absolute;
+    }
+} 
+
+.wrapper{
+    position: relative;
+}
+
+#header-circle:hover{
+    opacity: 0;
+    scale: 3;
 }
