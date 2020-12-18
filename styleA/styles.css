@@ -1,7 +1,6 @@
+/* prefers-reduced-motion */
 
- /* prefers-reduced-motion */
-
-
+/* css tricks border box reset */
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -108,43 +107,13 @@ header{
     -webkit-transform:scale(1.0);
 }
 
-/* example */
-
-.tricky {
-    display: block;
-    -webkit-transform:scale(1.0);
-}
-
-.tricky_image {
-    width: 200px; 
-    height: 200px;
-    -webkit-transition: all .6s ease;
-    opacity: 0.7;
-}
-
-.tricky:hover {
-    -webkit-transform:scale(1.0);
-}
-
-.tricky:hover .tricky_image {
-    opacity: 1;
-    -webkit-transform:scale(1.2);
- }
-
- #test-g:hover{
-     scale: 2;
- }
-
- .animated-blob{
-     border: 2px solid green;
-
- }
+/* BELOW ARE NEEDED */
 
  .animated-blob>svg{
-     border: 2px solid red;
      width:100%;
-     height: 100%;
-     transform-origin: 50% 50%;
+     /* height: 100%; */
+     /* transform-origin: 50% 50%; */
+     overflow:visible;
     transform: scale(1);
  }
 
@@ -153,4 +122,10 @@ header{
  }
  .animated-blob path{
      transform-origin: 50% 50%;
+ }
+
+ .item__clippath{
+     stroke: var(--a-gold);
+     stroke-width: 4px;
+     fill: none;
  }
