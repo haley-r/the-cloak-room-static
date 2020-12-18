@@ -22,7 +22,7 @@ window.addEventListener('scroll', () => {
             this.DOM.el = el;
             this.DOM.svg = this.DOM.el.querySelector('.item__svg');
             this.DOM.path = this.DOM.svg.querySelector('path');
-            this.DOM.deco = this.DOM.svg.querySelector('.item__deco');
+            this.DOM.border = this.DOM.svg.querySelector('.border');
             this.DOM.image = this.DOM.svg.querySelector('image');
 
             this.paths = {};
@@ -46,6 +46,14 @@ window.addEventListener('scroll', () => {
                         elasticity: this.DOM.el.dataset.imageElasticity || 400,
                         scaleX: this.DOM.el.dataset.imageScalex || 1.1,
                         scaleY: this.DOM.el.dataset.imageScaley || 1.1,
+                    },
+                    border: {
+                        duration: this.DOM.el.dataset.animationBorderDuration || 2000,
+                        delay: this.DOM.el.dataset.animationBorderDelay || 0,
+                        easing: this.DOM.el.dataset.animationBorderEasing || 'easeOutElastic',
+                        elasticity: this.DOM.el.dataset.borderElasticity || 400,
+                        scaleX: this.DOM.el.dataset.borderScalex || 1.1,
+                        scaleY: this.DOM.el.dataset.borderScaley || 1.1,
                     },
                 }
             };
@@ -108,6 +116,7 @@ window.addEventListener('scroll', () => {
         animate() {
             anime(this.getAnimeObj('path'));
             anime(this.getAnimeObj('image'));
+            anime(this.getAnimeObj('border'));
         }
     }
 
