@@ -32,28 +32,31 @@ window.addEventListener('scroll', () => {
             this.CONFIG = {
                 animation: {
                     path: {
-                        duration: this.DOM.el.dataset.animationPathDuration || 1500,
+                        duration: this.DOM.el.dataset.animationPathDuration || 3500,
                         delay: this.DOM.el.dataset.animationPathDelay || 0,
                         easing: this.DOM.el.dataset.animationPathEasing || 'easeOutElastic',
                         elasticity: this.DOM.el.dataset.pathElasticity || 400,
                         scaleX: this.DOM.el.dataset.pathScalex || 1,
                         scaleY: this.DOM.el.dataset.pathScaley || 1,
+                        opacity: 0,
                     },
                     image: {
-                        duration: this.DOM.el.dataset.animationImageDuration || 2000,
+                        duration: this.DOM.el.dataset.animationImageDuration || 4000,
                         delay: this.DOM.el.dataset.animationImageDelay || 0,
                         easing: this.DOM.el.dataset.animationImageEasing || 'easeOutElastic',
                         elasticity: this.DOM.el.dataset.imageElasticity || 400,
                         scaleX: this.DOM.el.dataset.imageScalex || 1.1,
                         scaleY: this.DOM.el.dataset.imageScaley || 1.1,
+                        opacity: 0,
                     },
                     border: {
-                        duration: this.DOM.el.dataset.animationBorderDuration || 2000,
+                        duration: this.DOM.el.dataset.animationBorderDuration || 4000,
                         delay: this.DOM.el.dataset.animationBorderDelay || 0,
                         easing: this.DOM.el.dataset.animationBorderEasing || 'easeOutElastic',
                         elasticity: this.DOM.el.dataset.borderElasticity || 400,
                         scaleX: this.DOM.el.dataset.borderScalex || 1.1,
                         scaleY: this.DOM.el.dataset.borderScaley || 1.1,
+                        opacity: 0,
                     },
                 }
             };
@@ -65,7 +68,7 @@ window.addEventListener('scroll', () => {
                 this.mouseTimeout = setTimeout(() => {
                     this.isActive = true;
                     this.animate();
-                }, 75);
+                }, 200);
             }
             this.mouseleaveFn = () => {
                 clearTimeout(this.mouseTimeout);
@@ -75,18 +78,20 @@ window.addEventListener('scroll', () => {
                 }
             }
 
-            // this.scrollKickoffFn=()=>{
-            //     this.scrollTimeout = setTimeout(() => {
-            //         this.isActive = true;
-            //         this.animate();
-            //     }, 75);
-            // }
+            this.scrollKickoffFn=()=>{
+                if (!this.isActive && window.pageYOffset>15){
+                    this.scrollTimeout = setTimeout(() => {
+                        this.isActive = true;
+                        this.animate();
+                    }, 75);
+                }
+            }
 
             // account for touchstreens
-            this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
-            this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
-            this.DOM.el.addEventListener('touchstart', this.mouseenterFn);
-            this.DOM.el.addEventListener('touchend', this.mouseleaveFn);
+            // this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
+            // this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
+            // this.DOM.el.addEventListener('touchstart', this.mouseenterFn);
+            // this.DOM.el.addEventListener('touchend', this.mouseleaveFn);
 
 
             window.addEventListener('scroll', this.scrollKickoffFn);
@@ -104,6 +109,7 @@ window.addEventListener('scroll', () => {
                 elasticity: this.CONFIG.animation[targetStr].elasticity,
                 scaleX: this.isActive ? this.CONFIG.animation[targetStr].scaleX : 1,
                 scaleY: this.isActive ? this.CONFIG.animation[targetStr].scaleY : 1,
+                opacity: this.CONFIG.animation[targetStr].opacity,
             };
 
             if (targetStr === 'path') {

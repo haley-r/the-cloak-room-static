@@ -108,12 +108,30 @@ header{
 }
 
 /* BELOW ARE NEEDED */
+/* .animated-blob{
+    border: 2px solid chartreuse;
+    margin: 0;
+} */
 
- .animated-blob>svg{
-     width:100%;
+
+@media all and (orientation:portrait) {
+    .animated-blob>svg{
+     width: 93vw;
+     height: 93vw;
      overflow:visible;
     transform: scale(1);
  }
+
+}
+@media all and (orientation:landscape) {
+    .animated-blob>svg{
+     height:93vh;
+     width: 93vh;
+     overflow:visible;
+    transform: scale(1);
+ }
+} 
+
 
  .animated-blob image{
      transform-origin: 50% 50%;
@@ -124,6 +142,6 @@ header{
 
  .border{
      stroke: var(--a-gold);
-     stroke-width: 4px;
+     stroke-width: 2px;
      fill: none;
  }
