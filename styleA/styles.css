@@ -33,6 +33,8 @@ header{
     height: 100%;
 }
 #showScroll{
+    /* display:none; */
+    opacity: 0;
     position:fixed;
     top: 0;
     left: 10px;
@@ -106,6 +108,9 @@ header{
     margin: 0;
 } */
 
+#main-logo{
+    z-index: 100;
+}
 @media all and (orientation:portrait) {
     #header-rectangle{
         flex-direction: column;
@@ -179,16 +184,23 @@ header{
 } 
 .page{
     height: 70vh;
-    border-top: 1px solid green;
+    position: relative;
+    /* border-top: 1px solid green; */
 }
 
 .page .item{
-    border: 2px solid green;
+    overflow: visible;
+}
+.item svg{
+    width: 100vw;
+    overflow: visible;
 }
 
 
 
-
+.offset-top{
+    display: none;
+}
 
 
 
@@ -230,9 +242,9 @@ header{
 }
 
 /* Individual styles */
-.item--style-1 .item__deco {
+/* .item--style-1 .item__deco {
 	fill: #dcdcde;
-}
+} */
 
 @media screen and (max-width: 60em) {
 	.item:first-of-type {
@@ -282,11 +294,24 @@ header{
 
 
 #fullbackground{
-    background-color: red;
+    background-color: #ce2e0e;
+    /* background-color: ; */
     height: 100vh;
     width: 100vw;
     z-index: -100;
     position: fixed;
     transition: background-color 2s ease-in-out;
     background-blend-mode: multiply;
+}
+
+.item__deco{
+    fill: rgb(8, 131, 161);
+}
+
+.page-text{
+    position: absolute;
+    bottom: 30%;
+    font-size: 2em;
+    padding: 2vw;
+    font-family: 'Chicle';
 }

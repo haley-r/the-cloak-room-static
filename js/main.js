@@ -89,7 +89,7 @@ window.addEventListener('scroll', () => {
                             this.isActive = false;
                             this.animate();
                         }
-                        document.querySelector("#fullbackground").style.backgroundColor = "red";
+                        document.querySelector("#fullbackground").style.backgroundColor = this.DOM.el.dataset.backgroundColorStart;
                     }
                 }
             }
@@ -144,37 +144,40 @@ window.addEventListener('scroll', () => {
             this.CONFIG = {
                 animation: {
                     path: {
-                        duration: this.DOM.el.dataset.animationPathDuration || 1500,
-                        delay: this.DOM.el.dataset.animationPathDelay || 0,
-                        easing: this.DOM.el.dataset.animationPathEasing || 'easeOutElastic',
-                        elasticity: this.DOM.el.dataset.pathElasticity || 400,
-                        scaleX: this.DOM.el.dataset.pathScalex || 1,
-                        scaleY: this.DOM.el.dataset.pathScaley || 1,
-                        translateX: this.DOM.el.dataset.pathTranslatex || 0,
-                        translateY: this.DOM.el.dataset.pathTranslatey || 0,
-                        rotate: this.DOM.el.dataset.pathRotate || 0
+                        duration: this.DOM.item.dataset.animationPathDuration || 1500,
+                        delay: this.DOM.item.dataset.animationPathDelay || 0,
+                        easing: this.DOM.item.dataset.animationPathEasing || 'easeOutElastic',
+                        elasticity: this.DOM.item.dataset.pathElasticity || 400,
+                        scaleX: this.DOM.item.dataset.pathScalex || 1,
+                        scaleY: this.DOM.item.dataset.pathScaley || 1,
+                        translateX: this.DOM.item.dataset.pathTranslatex || 0,
+                        translateY: this.DOM.item.dataset.pathTranslatey || 0,
+                        rotate: this.DOM.item.dataset.pathRotate || 0,
+                        opacity: 1,
                     },
                     image: {
-                        duration: this.DOM.el.dataset.animationImageDuration || 2000,
-                        delay: this.DOM.el.dataset.animationImageDelay || 0,
-                        easing: this.DOM.el.dataset.animationImageEasing || 'easeOutElastic',
-                        elasticity: this.DOM.el.dataset.imageElasticity || 400,
-                        scaleX: this.DOM.el.dataset.imageScalex || 1.1,
-                        scaleY: this.DOM.el.dataset.imageScaley || 1.1,
-                        translateX: this.DOM.el.dataset.imageTranslatex || 0,
-                        translateY: this.DOM.el.dataset.imageTranslatey || 0,
-                        rotate: this.DOM.el.dataset.imageRotate || 0
+                        duration: this.DOM.item.dataset.animationImageDuration || 2000,
+                        delay: this.DOM.item.dataset.animationImageDelay || 0,
+                        easing: this.DOM.item.dataset.animationImageEasing || 'easeOutElastic',
+                        elasticity: this.DOM.item.dataset.imageElasticity || 400,
+                        scaleX: this.DOM.item.dataset.imageScalex || 1.1,
+                        scaleY: this.DOM.item.dataset.imageScaley || 1.1,
+                        translateX: this.DOM.item.dataset.imageTranslatex || 0,
+                        translateY: this.DOM.item.dataset.imageTranslatey || 0,
+                        rotate: this.DOM.item.dataset.imageRotate || 0,
+                        opacity: 1,
                     },
                     deco: {
-                        duration: this.DOM.el.dataset.animationDecoDuration || 2500,
-                        delay: this.DOM.el.dataset.animationDecoDelay || 0,
-                        easing: this.DOM.el.dataset.animationDecoEasing || 'easeOutQuad',
-                        elasticity: this.DOM.el.dataset.decoElasticity || 400,
-                        scaleX: this.DOM.el.dataset.decoScalex || 0.9,
-                        scaleY: this.DOM.el.dataset.decoScaley || 0.9,
-                        translateX: this.DOM.el.dataset.decoTranslatex || 0,
-                        translateY: this.DOM.el.dataset.decoTranslatey || 0,
-                        rotate: this.DOM.el.dataset.decoRotate || 0
+                        duration: this.DOM.item.dataset.animationDecoDuration || 2500,
+                        delay: this.DOM.item.dataset.animationDecoDelay || 0,
+                        easing: this.DOM.item.dataset.animationDecoEasing || 'easeOutQuad',
+                        elasticity: this.DOM.item.dataset.decoElasticity || 400,
+                        scaleX: this.DOM.item.dataset.decoScalex || 0.9,
+                        scaleY: this.DOM.item.dataset.decoScaley || 0.9,
+                        translateX: this.DOM.item.dataset.decoTranslatex || 0,
+                        translateY: this.DOM.item.dataset.decoTranslatey || 0,
+                        rotate: this.DOM.item.dataset.decoRotate || 0,
+                        opacity: 0,
                     }
                 }
             };
@@ -208,8 +211,8 @@ window.addEventListener('scroll', () => {
                 let windowPosition = window.pageYOffset;
                 // console.log('windowPosition', windowPosition);
                 let ratio = (target-windowPosition)/window.innerHeight;
-                // console.log('ratio: ', ratio);
-                if (ratio > -.1 && ratio<.1){
+                console.log('ratio: ', ratio);
+                if (ratio > -.1 && ratio<.6){
                     this.DOM.offsetTopP.innerHTML = "BOOM"
                     this.mouseenterFn();
                 } else{
@@ -235,9 +238,12 @@ window.addEventListener('scroll', () => {
                 elasticity: this.CONFIG.animation[targetStr].elasticity,
                 scaleX: this.isActive ? this.CONFIG.animation[targetStr].scaleX : 1,
                 scaleY: this.isActive ? this.CONFIG.animation[targetStr].scaleY : 1,
+                // scaleX: 10,
+                // scaleY:3,
                 translateX: this.isActive ? this.CONFIG.animation[targetStr].translateX : 0,
                 translateY: this.isActive ? this.CONFIG.animation[targetStr].translateY : 0,
-                rotate: this.isActive ? this.CONFIG.animation[targetStr].rotate : 0
+                rotate: this.isActive ? this.CONFIG.animation[targetStr].rotate : 0,
+                opacity: this.isActive ? this.CONFIG.animation[targetStr].opacity : 1
             };
             if (targetStr === 'path') {
                 animeOpts.d = this.isActive ? this.paths.end : this.paths.start;
