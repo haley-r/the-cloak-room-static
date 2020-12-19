@@ -196,9 +196,16 @@ window.addEventListener('scroll', () => {
                 }
             }
             this.animateBasedOnScroll = () => {
-                if (window.pageYOffset==this.DOM.el.offsetTop){
+                let target= this.DOM.el.offsetTop;
+                console.log('target', target);
+                let windowPosition = window.pageYOffset;
+                console.log('windowPosition', windowPosition);
+                
+                if (windowPosition/target > .9 && windowPosition/target<1.1){
                     this.DOM.offsetTopP.innerHTML = "BOOM"
                     this.mouseenterFn();
+                } else{
+                    this.mouseleaveFn();
                 }
                 
             }
