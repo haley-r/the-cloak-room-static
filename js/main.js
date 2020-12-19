@@ -126,8 +126,6 @@ window.addEventListener('scroll', () => {
             anime(this.getAnimeObj('border'));
         }
     }
-
-
     class animationCircleItem {
         constructor(el) {
             this.DOM = {};
@@ -251,11 +249,29 @@ window.addEventListener('scroll', () => {
             anime(this.getAnimeObj('border'));
         }
     }
+    class pageItem {
+        constructor(el) {
+            this.DOM = {};
+            this.DOM.el = el;
+            this.DOM.offsetTop = this.DOM.el.querySelector('.offset-top');
+            // this.DOM.path = this.DOM.svg.querySelector('path');
+            // this.DOM.border = this.DOM.svg.querySelector('.border');
+            // this.DOM.image = this.DOM.svg.querySelector('image');
 
+            // this.paths = {};
+            // this.paths.start = this.DOM.path.getAttribute('d');
+            // this.paths.end = this.DOM.el.dataset.morphPath;
+            this.initEvents();
+        }
+        initEvents() {
+            this.writeOffsets=()=>{
+                console.log('hi');
+                this.DOM.offsetTop.innerHTML=this.DOM.offsetTop.offsetTop
+            }
 
-
-
-
+            window.addEventListener('load', this.writeOffsets);
+        }
+    }
 
 
 
@@ -264,6 +280,9 @@ window.addEventListener('scroll', () => {
 
     const firstPageCircleArray = Array.from(document.querySelectorAll('.first-page-circle'));
     const initCircle = (() => firstPageCircleArray.forEach(item => new animationCircleItem(item)))();
+
+    const pageArray = Array.from(document.querySelectorAll('.page'));
+    const initPages = (() => pageArray.forEach(item => new pageItem(item)))();
 
 
     setTimeout(() => document.body.classList.remove('loading'), 2000);
