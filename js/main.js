@@ -197,11 +197,12 @@ window.addEventListener('scroll', () => {
             }
             this.animateBasedOnScroll = () => {
                 let target= this.DOM.el.offsetTop;
-                console.log('target', target);
+                // console.log('target', target);
                 let windowPosition = window.pageYOffset;
-                console.log('windowPosition', windowPosition);
-                
-                if (windowPosition/target > .9 && windowPosition/target<1.1){
+                // console.log('windowPosition', windowPosition);
+                let ratio = (target-windowPosition)/window.innerHeight;
+                // console.log('ratio: ', ratio);
+                if (ratio > -.1 && ratio<.1){
                     this.DOM.offsetTopP.innerHTML = "BOOM"
                     this.mouseenterFn();
                 } else{
