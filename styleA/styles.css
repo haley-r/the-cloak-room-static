@@ -116,14 +116,18 @@ header{
 } */
 
 
+
 @media all and (orientation:portrait) {
     #header-rectangle{
         flex-direction: column;
     }
     #main-logo{
         width: 40vw;
-        bottom: 14vw;
-        left: 7vw;
+        /* these were when there was header rectangle border */
+        /* bottom: 14vw;
+        left: 7vw; */
+        bottom: 16vw;
+        left: 9vw;
         position: absolute;
     }
     .first-page-circle>svg{
@@ -146,8 +150,11 @@ header{
  }
  #main-logo{
         width: 40vh;
-        bottom: 14vh;
-        left: 7vh;
+        /* these were when there was header rectangle border */
+        /* bottom: 14vh;
+        left: 7vh; */
+        bottom: 16vh;
+        left: 9vh;
         position: absolute;
     }
 } 
@@ -197,3 +204,27 @@ header{
     justify-content: center;
     overflow: hidden;
 } */
+
+
+
+@media all and (orientation:portrait) {
+    #main-logo.sticky{
+        top: 13.5vw;
+        left: 11vw;
+        position: fixed;
+    }
+
+}
+@media all and (orientation:landscape) {
+ #main-logo.sticky{
+        top: 11.5vh;
+        left: 11h;
+        position: fixed;
+    }
+} 
+
+
+.page{
+    height: 100vh;
+    border-top: 1px solid green;
+}

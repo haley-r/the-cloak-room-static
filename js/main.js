@@ -230,7 +230,7 @@ window.addEventListener('scroll', () => {
             let animeOpts = {
                 targets: target,
                 duration: this.CONFIG.animation[targetStr].duration,
-                delay: this.CONFIG.animation[targetStr].delay,
+                delay: this.isActive ? this.CONFIG.animation[targetStr].delay : 0,
                 easing: this.CONFIG.animation[targetStr].easing,
                 elasticity: this.CONFIG.animation[targetStr].elasticity,
                 scaleX: this.isActive ? this.CONFIG.animation[targetStr].scaleX : 1,
@@ -256,6 +256,9 @@ window.addEventListener('scroll', () => {
 
 
 
+
+
+
     const animationBlobItems = Array.from(document.querySelectorAll('.animated-blob'));
     const init = (() => animationBlobItems.forEach(item => new animationBlobItem(item)))();
 
@@ -265,3 +268,81 @@ window.addEventListener('scroll', () => {
 
     setTimeout(() => document.body.classList.remove('loading'), 2000);
 };
+
+
+
+
+
+window.addEventListener('load', function () {
+    window.onscroll = function () { stickLogo() };
+    let logo = document.getElementById("main-logo");
+    let wrapper= document.getElementById("wrapper");
+
+    
+
+    // function stickHere(){ 
+    //     console.log(window.innerWidth, logo.offsetTop, wrapper.offsetTop, window.pageYOffset);
+    //     // console.log((logo.offsetTop+wrapper.offsetTop)/ window.innerWidth);
+    //     // console.log((window.innerWidth+logo.offsetTop+wrapper.offsetTop)/(window.pageYOffset));
+    //     // console.log(logo.offsetLeft);
+    //     console.log("pageYOffset", pageYOffset);
+            
+    //     console.log("stairstep", (window.innerWidth/50)*7);
+
+    //     console.log('difference:', (pageYOffset - ((window.innerWidth / 50) * 7)));
+        
+    // }
+    // document.getElementById('showScroll').addEventListener('click', stickHere)
+
+    function stickLogo() {   
+
+        let scrollTop = window.pageYOffset;
+        let logoOffset = document.querySelector('#main-logo').offsetTop;
+        let wrapperOffset = document.querySelector("#wrapper").offsetTop;
+        let distance = (logoOffset + wrapperOffset - scrollTop);
+        let vw = (document.querySelector('#main-logo').offsetLeft);
+        console.log('distance:', distance, "vw:", vw, "vw ratio:", vw/window.innerWidth);
+
+
+        if (distance < 1.5*vw) {
+            logo.classList.add("sticky");
+        } else {
+            logo.classList.remove("sticky");
+        }
+
+
+
+        // let scrollRatio = (window.pageYOffset / window.innerHeight).toFixed(2)-Math.floor((window.pageYOffset / window.innerHeight));
+        // // console.log('scrollRatio: ', scrollRatio);
+        // let page = Math.floor((window.pageYOffset / window.innerHeight)+1);
+        // // console.log('page:', page);
+        
+        
+        
+        // if (.9>scrollRatio>.3) {
+        //     console.log('conditions met!');
+        //     window.scrollTo({
+        //         // top: (window.innerHeight*(page+1)),
+        //         // left: 100,
+        //         behavior: 'smooth'
+        //     });
+
+        //     // add class "in view to appropriate animation!"
+        // }
+       
+        
+
+
+    }
+
+
+
+
+    // window.onscroll = function () { checkForSnap() };
+    // function checkForSnap(){
+    //     if ((window.pageYOffset / window.innerHeight) > .9) {
+    //         console.log('conditions met!');
+    //         // logo.classList.add("sticky");
+    //     }
+    // }
+});
