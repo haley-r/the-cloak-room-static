@@ -7,6 +7,8 @@ window.addEventListener('scroll', () => {
 {
     class animationCircleItem {
         constructor(el) {
+            this.body = body;
+            this.background = this.body.querySelector('#fullbackground');
             this.DOM = {};
             this.DOM.el = el;
             this.DOM.svg = this.DOM.el.querySelector('.item__svg');
@@ -77,6 +79,7 @@ window.addEventListener('scroll', () => {
                         this.isActive = true;
                         this.animate();
                     }, 75);
+                    document.querySelector("#fullbackground").style.backgroundColor = this.DOM.el.dataset.backgroundColor;
                 }
                 else {
                     if (window.pageYOffset===0){
@@ -86,6 +89,7 @@ window.addEventListener('scroll', () => {
                             this.isActive = false;
                             this.animate();
                         }
+                        document.querySelector("#fullbackground").style.backgroundColor = "red";
                     }
                 }
             }
@@ -122,7 +126,9 @@ window.addEventListener('scroll', () => {
         }
     }
     class pageItem {
-        constructor(el) {
+        constructor(el, body) {
+            this.body = body;
+            this.background = this.body.querySelector('#fullbackground');
             this.DOM = {};
             this.DOM.el = el;
             this.DOM.item = this.DOM.el.querySelector('.item');
@@ -185,7 +191,8 @@ window.addEventListener('scroll', () => {
                 this.mouseTimeout = setTimeout(() => {
                     this.isActive = true;
                     this.animate();
-                }, 75);
+                }, 75);                
+                this.background.style.backgroundColor = this.DOM.item.dataset.backgroundColor;
             }
             this.mouseleaveFn = () => {
                 // after 75 milliseconds, set isActive to false and run animate function
@@ -246,11 +253,13 @@ window.addEventListener('scroll', () => {
         }
     }
 
+    const body = document.querySelector("body")
+
     const firstPageCircleArray = Array.from(document.querySelectorAll('.first-page-circle'));
-    const initCircle = (() => firstPageCircleArray.forEach(item => new animationCircleItem(item)))();
+    const initCircle = (() => firstPageCircleArray.forEach(item => new animationCircleItem(item, body)))();
 
     const pageArray = Array.from(document.querySelectorAll('.page'));
-    const initPages = (() => pageArray.forEach(item => new pageItem(item)))();
+    const initPages = (() => pageArray.forEach(item => new pageItem(item, body)))();
 
 
 
@@ -259,8 +268,8 @@ window.addEventListener('scroll', () => {
 
 
 window.addEventListener('load', function () {
-    window.onscroll = function () { stickLogo() };
-    function stickLogo() {   
+    window.onscroll = function () { scrollThings() };
+    function scrollThings() {   
         let logo = document.getElementById("main-logo");
         let scrollTop = window.pageYOffset;
         let logoOffset = document.querySelector('#main-logo').offsetTop;
@@ -282,7 +291,7 @@ window.addEventListener('load', function () {
             } else {
                 logo.classList.remove("sticky");
             } 
-        }  
+        }          
     }
 });
 
