@@ -270,8 +270,10 @@ window.addEventListener('load', function () {
 
         if (window.innerHeight>window.innerWidth) {
             if (distance < 1.5 * vw) {
+                document.querySelector('body').classList.add('logo-stuck');
                  logo.classList.add("sticky");
             } else {
+                document.querySelector('body').classList.remove('logo-stuck');
                 logo.classList.remove("sticky");
             } 
         } else if (window.innerHeight<window.innerWidth) {            
