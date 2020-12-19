@@ -217,7 +217,7 @@ header{
 }
 @media all and (orientation:landscape) {
  #main-logo.sticky{
-        top: 11.5vh;
+        top: 5vw;
         left: 11h;
         position: fixed;
     }

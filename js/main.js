@@ -300,14 +300,24 @@ window.addEventListener('load', function () {
         let logoOffset = document.querySelector('#main-logo').offsetTop;
         let wrapperOffset = document.querySelector("#wrapper").offsetTop;
         let distance = (logoOffset + wrapperOffset - scrollTop);
-        let vw = (document.querySelector('#main-logo').offsetLeft);
-        console.log('distance:', distance, "vw:", vw, "vw ratio:", vw/window.innerWidth);
+        let vw = (document.querySelector('#main-logo').offsetLeft);        
 
-
-        if (distance < 1.5*vw) {
-            logo.classList.add("sticky");
-        } else {
-            logo.classList.remove("sticky");
+        if (window.innerHeight>window.innerWidth) {
+            if (distance < 1.5 * vw) {
+                 logo.classList.add("sticky");
+            } else {
+                logo.classList.remove("sticky");
+            } 
+        } else if (window.innerHeight<window.innerWidth) {
+            console.log('distance', distance);
+            console.log('vw:', vw/window.innerWidth);
+            
+            
+            if (distance < vw) {
+                logo.classList.add("sticky");
+            } else {
+                logo.classList.remove("sticky");
+            } 
         }
 
 
