@@ -1,20 +1,9 @@
-console.log('hello from main.js');
+// thanks to (link codrops site src code) for code and design inspiration
 
 window.addEventListener('scroll', () => {
-    // console.log('we scrollin!');
-    document.querySelector('body').classList.add('scrolled')
     document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px';
 })
-
-////////////////////////////////////////////////////////
-// CODROPS//////////
-
-// 1. make this code more semantic, but still flexible
-// 1.5 make it scroll instead of hover/mouseover
-// 2. deal with html and css to make first page effect and take out unused
-// 3. do other pages
-// 4. credit codrops for this code
-
+// ////////
 {
     class animationBlobItem {
         constructor(el) {
@@ -211,13 +200,6 @@ window.addEventListener('scroll', () => {
                 }
             }
 
-            // account for touchstreens
-            // this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
-            // this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
-            // this.DOM.el.addEventListener('touchstart', this.mouseenterFn);
-            // this.DOM.el.addEventListener('touchend', this.mouseleaveFn);
-
-
             window.addEventListener('scroll', this.scrollKickoffFn);
 
 
@@ -254,18 +236,11 @@ window.addEventListener('scroll', () => {
             this.DOM = {};
             this.DOM.el = el;
             this.DOM.offsetTopP = this.DOM.el.querySelector('.offset-top');
-            // this.DOM.path = this.DOM.svg.querySelector('path');
-            // this.DOM.border = this.DOM.svg.querySelector('.border');
-            // this.DOM.image = this.DOM.svg.querySelector('image');
 
-            // this.paths = {};
-            // this.paths.start = this.DOM.path.getAttribute('d');
-            // this.paths.end = this.DOM.el.dataset.morphPath;
             this.initEvents();
         }
         initEvents() {
             this.writeOffsets=()=>{
-                console.log('hi');
                 this.DOM.offsetTopP.innerHTML=this.DOM.el.offsetTop
             }
 
@@ -289,32 +264,10 @@ window.addEventListener('scroll', () => {
 };
 
 
-
-
-
 window.addEventListener('load', function () {
     window.onscroll = function () { stickLogo() };
-    let logo = document.getElementById("main-logo");
-    let wrapper= document.getElementById("wrapper");
-
-    
-
-    // function stickHere(){ 
-    //     console.log(window.innerWidth, logo.offsetTop, wrapper.offsetTop, window.pageYOffset);
-    //     // console.log((logo.offsetTop+wrapper.offsetTop)/ window.innerWidth);
-    //     // console.log((window.innerWidth+logo.offsetTop+wrapper.offsetTop)/(window.pageYOffset));
-    //     // console.log(logo.offsetLeft);
-    //     console.log("pageYOffset", pageYOffset);
-            
-    //     console.log("stairstep", (window.innerWidth/50)*7);
-
-    //     console.log('difference:', (pageYOffset - ((window.innerWidth / 50) * 7)));
-        
-    // }
-    // document.getElementById('showScroll').addEventListener('click', stickHere)
-
     function stickLogo() {   
-
+        let logo = document.getElementById("main-logo");
         let scrollTop = window.pageYOffset;
         let logoOffset = document.querySelector('#main-logo').offsetTop;
         let wrapperOffset = document.querySelector("#wrapper").offsetTop;
@@ -327,51 +280,12 @@ window.addEventListener('load', function () {
             } else {
                 logo.classList.remove("sticky");
             } 
-        } else if (window.innerHeight<window.innerWidth) {
-            console.log('distance', distance);
-            console.log('vw:', vw/window.innerWidth);
-            
-            
+        } else if (window.innerHeight<window.innerWidth) {            
             if (distance < .05*window.innerHeight) {
                 logo.classList.add("sticky");
             } else {
                 logo.classList.remove("sticky");
             } 
-        }
-
-
-
-        // let scrollRatio = (window.pageYOffset / window.innerHeight).toFixed(2)-Math.floor((window.pageYOffset / window.innerHeight));
-        // // console.log('scrollRatio: ', scrollRatio);
-        // let page = Math.floor((window.pageYOffset / window.innerHeight)+1);
-        // // console.log('page:', page);
-        
-        
-        
-        // if (.9>scrollRatio>.3) {
-        //     console.log('conditions met!');
-        //     window.scrollTo({
-        //         // top: (window.innerHeight*(page+1)),
-        //         // left: 100,
-        //         behavior: 'smooth'
-        //     });
-
-        //     // add class "in view to appropriate animation!"
-        // }
-       
-        
-
-
+        }  
     }
-
-
-
-
-    // window.onscroll = function () { checkForSnap() };
-    // function checkForSnap(){
-    //     if ((window.pageYOffset / window.innerHeight) > .9) {
-    //         console.log('conditions met!');
-    //         // logo.classList.add("sticky");
-    //     }
-    // }
 });
