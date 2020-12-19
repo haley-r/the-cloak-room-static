@@ -313,7 +313,7 @@ window.addEventListener('load', function () {
             console.log('vw:', vw/window.innerWidth);
             
             
-            if (distance < vw) {
+            if (distance < .05*window.innerHeight) {
                 logo.classList.add("sticky");
             } else {
                 logo.classList.remove("sticky");
