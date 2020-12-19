@@ -253,7 +253,7 @@ window.addEventListener('scroll', () => {
         constructor(el) {
             this.DOM = {};
             this.DOM.el = el;
-            this.DOM.offsetTop = this.DOM.el.querySelector('.offset-top');
+            this.DOM.offsetTopP = this.DOM.el.querySelector('.offset-top');
             // this.DOM.path = this.DOM.svg.querySelector('path');
             // this.DOM.border = this.DOM.svg.querySelector('.border');
             // this.DOM.image = this.DOM.svg.querySelector('image');
@@ -266,7 +266,7 @@ window.addEventListener('scroll', () => {
         initEvents() {
             this.writeOffsets=()=>{
                 console.log('hi');
-                this.DOM.offsetTop.innerHTML=this.DOM.offsetTop.offsetTop
+                this.DOM.offsetTopP.innerHTML=this.DOM.el.offsetTop
             }
 
             window.addEventListener('load', this.writeOffsets);
