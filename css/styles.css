@@ -308,10 +308,16 @@ header{
     fill: rgb(8, 131, 161);
 }
 
+svg, path{
+    stroke: var(--a-gold)
+}
+
 .page-text{
     position: absolute;
     bottom: 30%;
     font-size: 2em;
     padding: 2vw;
-    font-family: 'Chicle';
+    font-family: 'Jost';
+    font-weight: 600;
+    z-index: 10;
 }
