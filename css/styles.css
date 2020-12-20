@@ -1,37 +1,8 @@
 /* prefers-reduced-motion */
 
-/* css tricks border box reset */
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
-  }
-body {
-    background-color: var(--a-black);
-    color: var(--a-gold);
-    font-family: 'Josefin Sans', sans-serif;
-}
-header h1, header p{
-    display: none;
-}
-a{
-    color: inherit;
-}
-.first-page{
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    /* remove header rectangle border for now */
-    /* padding: 1vh 1vw; */
-}
-header{
-    height: 100%;
-}
+
+
+/* temporary styles- delete for final version */
 #showScroll{
     /* display:none; */
     opacity: 0;
@@ -39,179 +10,131 @@ header{
     top: 0;
     left: 10px;
 }
+.offset-top{
+    display: none;
+}
+/* @media screen and (max-width: 60em) {
+	.item:first-of-type {
+		grid-column: span 2;
+	}
+	.content--grid {
+		grid-row-gap: 25vh;
+	}
+}
+@media screen and (max-width: 40em) {
+	.content--grid {
+		padding: 2vh 8vw;
+	}
+	.item__svg {
+		min-height: 360px;
+	}
+} */
+
+/* PORTRAIT/UNIVERSAL STYLES, STARTING WITH MOBILE */
+
+/* css tricks border box reset */
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+/* general styles */
+body {
+    background-color: var(--a-black);
+    color: var(--a-gold);
+    font-family: 'Josefin Sans', sans-serif;
+}
+#fullbackground{
+    background-color: #ce2e0e;
+    height: 100vh;
+    width: 100vw;
+    z-index: -100;
+    position: fixed;
+    transition: background-color 2s ease-in-out;
+    background-blend-mode: multiply;
+}
+a{
+    color: inherit;
+}
+img{
+     max-width: 100vw;
+}
+svg, path{
+    stroke: var(--a-gold)
+}
+/* header/first page styles */
+header{
+    height: 100%;
+}
+header h1, header p{
+    display: none;
+}
 #header-rectangle {
-    /* remove header rectangle border for now */
-    /* border: 2px solid var(--a-gold); */
     width: 100%;
     height: 100%;
     padding: 2vh 2vw;
     display: flex;
     justify-content: center;
     overflow: hidden;
+    flex-direction: column;
 }
-/* #header-circle {
-    border: 2px solid var(--a-gold);
-    border-radius: 50%;
-    background-image: url(../images/reddish-velvet.jpg);
-    background-color: teal;
-    background-blend-mode: exclusion;
-    background-size: cover;
-    opacity: 1;
-    transition: opacity 2s ease-out, scale 2s ease-in-out;
-    scale: 1;
+    #header-rectangle .wrapper{
+        position: relative;
+    }
+.first-page{
+    width: 100vw;
+    height: 100vh;
     position: relative;
 }
-@media all and (orientation:portrait) {
-    #header-rectangle{
-        flex-direction: column;
+    .first-page-circle image{
+        transform-origin: 50% 50%;
     }
-    #header-circle {
-    width: 93vw;
-    height: 93vw;
-    }
-    #main-logo{
-        width: 40vw;
-        bottom: 14vw;
-        left: 7vw;
-        position: absolute;
-    }
-
-}
-@media all and (orientation:landscape) {
-    #header-rectangle{
-        flex-direction: row;
-    }
-    #header-circle {
-    width: 93vh;
-    height: 93vh;
- }
- #main-logo{
-        width: 40vh;
-        bottom: 14vh;
-        left: 7vh;
-        position: absolute;
-    }
-}  */
-.wrapper{
-    position: relative;
-}
-/* 
-.scrolled #header-circle{
-    opacity: 0;
-    scale: 3;
-    -webkit-transform:scale(1.0);
-} */
-
-/* BELOW ARE NEEDED */
-/* .animated-blob{
-    border: 2px solid chartreuse;
-    margin: 0;
-} */
-
-#main-logo{
-    z-index: 100;
-}
-@media all and (orientation:portrait) {
-    #header-rectangle{
-        flex-direction: column;
-    }
-    #main-logo{
-        width: 40vw;
-        /* these were when there was header rectangle border */
-        /* bottom: 14vw;
-        left: 7vw; */
-        bottom: 16vw;
-        left: 9vw;
-        position: absolute;
+    .first-page-circle path{
+        transform-origin: 50% 50%;
     }
     .first-page-circle>svg{
-     width: 93vw;
-     height: 93vw;
-     overflow:visible;
-    transform: scale(1);
- }
-
-}
-@media all and (orientation:landscape) {
-    #header-rectangle{
-        flex-direction: row;
+        width: 93vw;
+        height: 93vw;
+        overflow:visible;
+        transform: scale(1);
     }
-    .first-page-circle>svg{
-     height:93vh;
-     width: 93vh;
-     overflow:visible;
-    transform: scale(1);
- }
- #main-logo{
-        width: 40vh;
-        /* these were when there was header rectangle border */
-        /* bottom: 14vh;
-        left: 7vh; */
-        bottom: 16vh;
-        left: 9vh;
-        position: absolute;
-    }
-} 
- .first-page-circle image{
-     transform-origin: 50% 50%;
- }
- .first-page-circle path{
-     transform-origin: 50% 50%;
- }
- .border{
+    .first-page .border{
      stroke: var(--a-gold);
      stroke-width: 2px;
      fill: rgb(0, 128, 49);
      mix-blend-mode: multiply;
- }
- img{
-     max-width: 100vw;
- }
-@media all and (orientation:portrait) {
+    }
+#main-logo{
+    z-index: 100;
+    width: 40vw;
+    bottom: 16vw;
+    left: 9vw;
+    position: absolute;
+}
     #main-logo.sticky{
         top: 13.5vw;
         left: 11vw;
         position: fixed;
     }
-
-}
-@media all and (orientation:landscape) {
- #main-logo.sticky{
-        top: 5vh;
-        left: 11vh;
-        position: fixed;
-    }
-} 
+/* other page styles */
 .page{
     height: 70vh;
     position: relative;
-    /* border-top: 1px solid green; */
 }
-
-.page .item{
-    overflow: visible;
-}
-.item svg{
-    width: 100vw;
-    overflow: visible;
-}
-
-
-
-.offset-top{
-    display: none;
-}
-
-
-
-
-
-/* CODROPS */
-
-/* Content */
-
-/* items */
-.item {
+    .page .item{
+        overflow: visible;
+    }
+    .item svg{
+        width: 100vw;
+        overflow: visible;
+    }
+    .item {
+    /* CODROPS STYLES */
 	position: relative;
 	width: 500px;
 	max-width: 100%;
@@ -223,53 +146,36 @@ header{
 	user-select: none;
 	grid-column: span 2;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    .item__svg {
+        /* CODROPS STYLES */
+        position: relative;
+        display: block;
+        width: 80%;
+        height: auto;
+        min-height: 500px;
+        margin: 0 auto;
+    }
+    .item__clippath,
+    .item__deco,
+    .item__img {
+        /* CODROPS STYLES */
+        transform-origin: 50% 50%;
+    }
+    .item__deco{
+        fill: rgb(8, 131, 161);
+    }
+.page-text{
+    position: absolute;
+    bottom: 30%;
+    font-size: 2em;
+    padding: 2vw;
+    font-family: 'Jost';
+    font-weight: 600;
+    z-index: 10;
 }
 
-
-.item__svg {
-	position: relative;
-	display: block;
-	width: 80%;
-	height: auto;
-	min-height: 500px;
-	margin: 0 auto;
-}
-
-.item__clippath,
-.item__deco,
-.item__img {
-	transform-origin: 50% 50%;
-}
-
-/* Individual styles */
-/* .item--style-1 .item__deco {
-	fill: #dcdcde;
-} */
-
-@media screen and (max-width: 60em) {
-	.item:first-of-type {
-		grid-column: span 2;
-	}
-	.content--grid {
-		grid-row-gap: 25vh;
-	}
-}
-
-@media screen and (max-width: 40em) {
-	.content--grid {
-		padding: 2vh 8vw;
-	}
-	.item__svg {
-		min-height: 360px;
-	}
-}
-
-
-.item__deco{
-	border: 1px solid palevioletred;
-}
-
-
+/* contact section */
 #contact-list{
     list-style-type: none;
     position: fixed;
@@ -281,6 +187,9 @@ header{
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
+.logo-stuck #contact-list{
+    opacity: 1;
+}
     #contact-list li{
         display: inline-block;
     }
@@ -288,36 +197,32 @@ header{
         font-size: 1.5em;
         padding: .5em;
     }
-.logo-stuck #contact-list{
-    opacity: 1;
-}
 
 
-#fullbackground{
-    background-color: #ce2e0e;
-    /* background-color: ; */
-    height: 100vh;
-    width: 100vw;
-    z-index: -100;
-    position: fixed;
-    transition: background-color 2s ease-in-out;
-    background-blend-mode: multiply;
-}
 
-.item__deco{
-    fill: rgb(8, 131, 161);
-}
-
-svg, path{
-    stroke: var(--a-gold)
-}
-
-.page-text{
-    position: absolute;
-    bottom: 30%;
-    font-size: 2em;
-    padding: 2vw;
-    font-family: 'Jost';
-    font-weight: 600;
-    z-index: 10;
+@media all and (orientation:landscape){
+    /* general styles */
+    /* header/first page styles */
+    #header-rectangle{
+        flex-direction: row;
+    }
+    .first-page-circle>svg{
+        height:93vh;
+        width: 93vh;
+        overflow:visible;
+        transform: scale(1);
+    }
+    #main-logo{
+        width: 40vh;
+        bottom: 16vh;
+        left: 9vh;
+        position: absolute;
+    }
+    #main-logo.sticky{
+        top: 5vh;
+        left: 11vh;
+        position: fixed;
+    }
+    /* other page styles */
+    /* contact section */
 }
