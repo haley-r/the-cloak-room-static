@@ -3,7 +3,7 @@
 window.addEventListener('scroll', () => {
     document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px';
 })
-// ////////
+
 {
     class animationCircleItem {
         constructor(el) {
@@ -238,8 +238,6 @@ window.addEventListener('scroll', () => {
                 elasticity: this.CONFIG.animation[targetStr].elasticity,
                 scaleX: this.isActive ? this.CONFIG.animation[targetStr].scaleX : 1,
                 scaleY: this.isActive ? this.CONFIG.animation[targetStr].scaleY : 1,
-                // scaleX: 10,
-                // scaleY:3,
                 translateX: this.isActive ? this.CONFIG.animation[targetStr].translateX : 0,
                 translateY: this.isActive ? this.CONFIG.animation[targetStr].translateY : 0,
                 rotate: this.isActive ? this.CONFIG.animation[targetStr].rotate : 0,
@@ -271,7 +269,6 @@ window.addEventListener('scroll', () => {
 
     setTimeout(() => document.body.classList.remove('loading'), 2000);
 };
-
 
 window.addEventListener('load', function () {
     window.onscroll = function () { scrollThings() };
