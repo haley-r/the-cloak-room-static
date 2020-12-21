@@ -83,7 +83,7 @@ window.addEventListener('scroll', () => {
                 }
                 else {
                     if (window.pageYOffset===0){
-                        console.log('back at top');
+                        // console.log('back at top');
                         clearTimeout(this.scrollTimeout);
                         if (this.isActive) {
                             this.isActive = false;
@@ -211,7 +211,7 @@ window.addEventListener('scroll', () => {
                 let windowPosition = window.pageYOffset;
                 // console.log('windowPosition', windowPosition);
                 let ratio = (target-windowPosition)/window.innerHeight;
-                console.log('ratio: ', ratio);
+                // console.log('ratio: ', ratio);
                 if (ratio > -.1 && ratio<.6){
                     this.DOM.offsetTopP.innerHTML = "BOOM"
                     this.mouseenterFn();
@@ -289,7 +289,10 @@ window.addEventListener('load', function () {
                 logo.classList.remove("sticky");
             } 
         } else if (window.innerHeight<window.innerWidth) {            
-            if (distance < .05*window.innerHeight) {
+            if (
+                window.pageYOffset>5
+                // distance < .05*window.innerHeight
+                ) {
                 logo.classList.add("sticky");
             } else {
                 logo.classList.remove("sticky");
