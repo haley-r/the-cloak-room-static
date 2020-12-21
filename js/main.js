@@ -271,6 +271,15 @@ window.addEventListener('scroll', () => {
 };
 
 window.addEventListener('load', function () {
+    let menuButton=document.querySelector('#menu-button');
+    let menu = document.querySelector('#contact-list');
+    menuButton.addEventListener('click', function(){
+        console.log('click');
+        
+        menu.classList.toggle('menu-open')
+    })
+
+
     window.onscroll = function () { scrollThings() };
     function scrollThings() {   
         let logo = document.getElementById("main-logo");
