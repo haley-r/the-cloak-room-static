@@ -5,13 +5,14 @@
 /* temporary styles- delete for final version */
 #showScroll{
     /* display:none; */
-    opacity: 0;
+    /* opacity: 0; */
     position:fixed;
+    z-index: 100;
     top: 0;
     left: 10px;
 }
 .offset-top{
-    display: none;
+    /* display: none; */
 }
 /* @media screen and (max-width: 60em) {
 	.item:first-of-type {
@@ -144,6 +145,7 @@ header h1, header p{
 .page{
     height: 70vh;
     position: relative;
+    /* border-top: 1px solid green; */
 }
     .page .item{
         overflow: visible;

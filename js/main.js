@@ -1,10 +1,7 @@
-// thanks to (link codrops site src code) for code and design inspiration
+// design inspiration and starter code from:
+// https://github.com/codrops/OrganicShapeAnimations/
 
-window.addEventListener('scroll', () => {
-    document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px';
-})
-
-{
+{ // make js objects out of html elements
     class animationCircleItem {
         constructor(el) {
             this.body = body;
@@ -133,7 +130,7 @@ window.addEventListener('scroll', () => {
             this.DOM.el = el;
             this.DOM.item = this.DOM.el.querySelector('.item');
             this.DOM.offsetTopP = this.DOM.el.querySelector('.offset-top');
-            this.DOM.offsetNumber = this.DOM.offsetTopP.offsetTop;
+            this.DOM.offsetNumber = this.DOM.el.offsetTop;
             this.DOM.svg = this.DOM.item.querySelector('.item__svg');
             this.DOM.path = this.DOM.svg.querySelector('path');
             this.DOM.deco = this.DOM.svg.querySelector('.item__deco');
@@ -185,11 +182,9 @@ window.addEventListener('scroll', () => {
         }
         initEvents() {
             this.writeOffsets=()=>{
-                this.DOM.offsetTopP.innerHTML=this.DOM.offsetNumber
+                this.DOM.offsetTopP.innerHTML=this.DOM.offsetNumber;
             }
-            window.addEventListener('load', this.writeOffsets);
-
-            this.mouseenterFn = () => {
+            this.initiateAnimation = () => {
                 // after 75 milliseconds, set isActive to true and run animate function
                 this.mouseTimeout = setTimeout(() => {
                     this.isActive = true;
@@ -197,7 +192,7 @@ window.addEventListener('scroll', () => {
                 }, 75);                
                 this.background.style.backgroundColor = this.DOM.item.dataset.backgroundColor;
             }
-            this.mouseleaveFn = () => {
+            this.closeAnimation = () => {
                 // after 75 milliseconds, set isActive to false and run animate function
                 clearTimeout(this.mouseTimeout);
                 if (this.isActive) {
@@ -207,25 +202,23 @@ window.addEventListener('scroll', () => {
             }
             this.animateBasedOnScroll = () => {
                 let target= this.DOM.el.offsetTop;
-                // console.log('target', target);
                 let windowPosition = window.pageYOffset;
-                // console.log('windowPosition', windowPosition);
-                let ratio = (target-windowPosition)/window.innerHeight;
-                // console.log('ratio: ', ratio);
+                let distancePageTopToWindowTop = target - windowPosition
+                let ratio = distancePageTopToWindowTop/window.innerHeight;
                 if (ratio > -.1 && ratio<.6){
-                    this.DOM.offsetTopP.innerHTML = "BOOM"
-                    this.mouseenterFn();
+                    this.DOM.offsetTopP.innerHTML = "activated"
+                    this.initiateAnimation();
                 } else{
-                    this.mouseleaveFn();
+                    this.DOM.offsetTopP.innerHTML = "deactivated"
+                    this.closeAnimation();
                 }
-                
             }
-            // account for touchstreens
-            this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
-            this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
-            this.DOM.el.addEventListener('touchstart', this.mouseenterFn);
-            this.DOM.el.addEventListener('touchend', this.mouseleaveFn);
-
+            // // hover events, account for touchscreens
+            // this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
+            // this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
+            // this.DOM.el.addEventListener('touchstart', this.mouseenterFn);
+            // this.DOM.el.addEventListener('touchend', this.mouseleaveFn);
+            window.addEventListener('load', this.writeOffsets);
             window.addEventListener('scroll', this.animateBasedOnScroll)
         }
         getAnimeObj(targetStr) {
@@ -246,7 +239,6 @@ window.addEventListener('scroll', () => {
             if (targetStr === 'path') {
                 animeOpts.d = this.isActive ? this.paths.end : this.paths.start;
             }
-
             anime.remove(target);
             return animeOpts;
         }
@@ -258,50 +250,46 @@ window.addEventListener('scroll', () => {
     }
 
     const body = document.querySelector("body")
-
     const firstPageCircleArray = Array.from(document.querySelectorAll('.first-page-circle'));
     const initCircle = (() => firstPageCircleArray.forEach(item => new animationCircleItem(item, body)))();
-
     const pageArray = Array.from(document.querySelectorAll('.page'));
     const initPages = (() => pageArray.forEach(item => new pageItem(item, body)))();
 
-
-
-    setTimeout(() => document.body.classList.remove('loading'), 2000);
+    // setTimeout(() => document.body.classList.remove('loading'), 2000);
 };
 
 window.addEventListener('load', function () {
+    // evaluate scroll and put on DOM
+    document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px';
+    // name elements
     let menuButton=document.querySelector('#menu-button');
     let menu = document.querySelector('#contact-list');
+    // set up listen events
     menuButton.addEventListener('click', function(){
-        console.log('click');
-        
         menu.classList.toggle('menu-open')
     })
-
-
-    window.onscroll = function () { scrollThings() };
-    function scrollThings() {   
+    window.onscroll = function(){   
+        // scroll variables
+        let scrollFromTop = window.pageYOffset;
         let logo = document.getElementById("main-logo");
-        let scrollTop = window.pageYOffset;
-        let logoOffset = document.querySelector('#main-logo').offsetTop;
+        let logoOffset = logo.offsetTop;
         let wrapperOffset = document.querySelector("#wrapper").offsetTop;
-        let distance = (logoOffset + wrapperOffset - scrollTop);
-        let vw = (document.querySelector('#main-logo').offsetLeft);        
-
+        let distance = (logoOffset + wrapperOffset - scrollFromTop);
+        let logoOffsetLeft = logo.offsetLeft;  
+        // evaluate scroll and put on DOM
+        document.getElementById('showScroll').innerHTML = scrollFromTop + 'px';
+        // sticky the logo when appropriate
         if (window.innerHeight>window.innerWidth) {
-            if (distance < 1.5 * vw) {
+            if (distance < 1.5 * logoOffsetLeft) {
                 document.querySelector('body').classList.add('logo-stuck');
-                 logo.classList.add("sticky");
+                logo.classList.add("sticky");
             } else {
                 document.querySelector('body').classList.remove('logo-stuck');
                 logo.classList.remove("sticky");
             } 
-        } else if (window.innerHeight<window.innerWidth) {            
-            if (
-                window.pageYOffset>5
-                // distance < .05*window.innerHeight
-                ) {
+        } else if (window.innerHeight<window.innerWidth) {    
+            //for horizontal screens, stick/unstick closer to original position        
+            if (scrollFromTop>5) {
                 logo.classList.add("sticky");
             } else {
                 logo.classList.remove("sticky");
