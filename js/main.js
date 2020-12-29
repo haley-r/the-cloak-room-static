@@ -206,10 +206,12 @@
                 let distancePageTopToWindowTop = target - windowPosition
                 let ratio = distancePageTopToWindowTop/window.innerHeight;
                 if (ratio > -.1 && ratio<.6){
-                    this.DOM.offsetTopP.innerHTML = "activated"
+                    this.DOM.offsetTopP.innerHTML = `activated ${target}`
+                    this.DOM.el.classList.add("active");
                     this.initiateAnimation();
                 } else{
-                    this.DOM.offsetTopP.innerHTML = "deactivated"
+                    this.DOM.offsetTopP.innerHTML = `deactivated ${target}`
+                    this.DOM.el.classList.remove("active");
                     this.closeAnimation();
                 }
             }

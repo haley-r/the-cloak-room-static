@@ -4,7 +4,7 @@
 
 /* temporary styles- delete for final version */
 #showScroll{
-    /* display:none; */
+    display:none;
     /* opacity: 0; */
     position:fixed;
     z-index: 100;
@@ -12,7 +12,8 @@
     left: 10px;
 }
 .offset-top{
-    /* display: none; */
+    display: none;
+    position: absolute;
 }
 /* @media screen and (max-width: 60em) {
 	.item:first-of-type {
@@ -86,18 +87,11 @@ header h1, header p{
     padding: 2vh 2vw;
     display: flex;
     justify-content: center;
-    /* overflow: hidden; */
     overflow:visible;
     flex-direction: column;
 }
     #header-rectangle .wrapper{
         position: relative;
-        /* height: 100%; */
-        /* display: flex;
-        justify-content: center;
-        overflow: hidden;
-        flex-direction: column; */
-        /* border: 2px solid green; */
         overflow:visible;
     }
 .first-page{
@@ -143,12 +137,17 @@ header h1, header p{
 
 /* other page styles */
 .page{
-    height: 70vh;
+    /* height: 70vh; */
     position: relative;
-    /* border-top: 1px solid green; */
+    border-top: 1px solid green;
+}
+.page.active{
+    border: 1px solid tomato;
 }
     .page .item{
         overflow: visible;
+        border: 1px dashed blue;
+        /* margin-top: 52vw; */
     }
     .item svg{
         width: 100vw;
@@ -187,14 +186,38 @@ header h1, header p{
         fill: rgb(8, 131, 161);
     }
 .page-text{
-    position: absolute;
-    bottom: 30%;
-    font-size: 2em;
-    padding: 2vw;
-    font-family: 'Jost';
-    font-weight: 600;
+    /* display: none; */
+    position: relative;
+    transform: translateY(-50%);
+    font-size: 1.4em;
+    padding: 5vw;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
     z-index: 10;
 }
+/* single pages */
+#page-1 .intro-text{
+    font-family: 'UnifrakturMaguntia', cursive;
+    text-align: center;
+    font-size: 10vw;
+    /* display: none; */
+    position: absolute;
+    /* top: -28vw; */
+    opacity: 1;
+    transition: opacity 2s;
+}
+    #page-1 .intro-text span{
+    display: block;
+    font-size: 6vw;
+    }
+    #page-1.active .intro-text{
+        opacity: 0;
+    }
+
+
+    .gillies-text{
+        position: absolute;
+    }
 /* contact section */
 #contact-list{
     position: fixed;
