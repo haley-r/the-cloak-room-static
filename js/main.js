@@ -129,6 +129,15 @@
     }
     class pageItem {
         constructor(el, body) {
+            function getPosition(element) {
+                var distanceFromTopOfDocument = 0;
+                while (element) {
+                    distanceFromTopOfDocument += (element.offsetTop - element.scrollTop + element.clientTop);
+                    element = element.offsetParent;
+                }
+                return distanceFromTopOfDocument;
+            }
+
             this.body = body;
             this.background = this.body.querySelector('#fullbackground');
             this.scrollbar = this.body.querySelector('#scroll-div');
@@ -136,11 +145,18 @@
             this.DOM.el = el;
             this.DOM.item = this.DOM.el.querySelector('.item');
             this.DOM.offsetTopP = this.DOM.el.querySelector('.offset-top');
+            this.DOM.offsetTopO = this.DOM.el.querySelector('.other-offset');
             this.DOM.offsetNumber = this.DOM.el.offsetTop;
             this.DOM.svg = this.DOM.item.querySelector('.item__svg');
             this.DOM.path = this.DOM.svg.querySelector('path');
             this.DOM.deco = this.DOM.svg.querySelector('.item__deco');
             this.DOM.image = this.DOM.svg.querySelector('image');
+            this.DOM.pageText = this.DOM.el.querySelector(".page-text")
+
+            this.DOM.itemOffsetTop = getPosition(this.DOM.item);
+            this.DOM.pageTextOffsetTop = getPosition(this.DOM.pageText);
+
+
             this.paths = {};
             this.paths.start = this.DOM.path.getAttribute('d');
             this.paths.end = this.DOM.item.dataset.morphPath;
@@ -189,6 +205,8 @@
         initEvents() {
             this.writeOffsets=()=>{
                 this.DOM.offsetTopP.innerHTML=this.DOM.offsetNumber;
+                this.DOM.offsetTopO.innerHTML = `item: ${this.DOM.itemOffsetTop}, pagetext: ${this.DOM.pageTextOffsetTop}`;
+
             }
             this.initiateAnimation = () => {
                 // after 75 milliseconds, set isActive to true and run animate function
@@ -215,11 +233,28 @@
                 if (ratio > -.1 && ratio<.6){
                     this.DOM.offsetTopP.innerHTML = `activated ${target}`
                     this.DOM.el.classList.add("active");
+                    this.DOM.el.classList.remove("deactive");
                     this.initiateAnimation();
                 } else{
                     this.DOM.offsetTopP.innerHTML = `deactivated ${target}`
                     this.DOM.el.classList.remove("active");
+                    this.DOM.el.classList.add("deactive");
                     this.closeAnimation();
+                }
+
+                let item=this.DOM.item;
+                let pagetext = this.DOM.pageText;
+                if (this.DOM.itemOffsetTop - windowPosition < 20){
+                    item.classList.add("conceal");
+                }
+                else {
+                    item.classList.remove("conceal");
+                }
+                if (this.DOM.pageTextOffsetTop - windowPosition < 100) {
+                    pagetext.classList.add("conceal");
+                }
+                else {
+                    pagetext.classList.remove("conceal");
                 }
             }
             // // hover events, account for touchscreens
