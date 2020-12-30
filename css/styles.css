@@ -294,7 +294,7 @@ header h1, header p{
   bottom: 0;
   left: 0;
   z-index: 100;
-  width: 100vw;
+  /* width: 100vw; */
   opacity: 0;
   transition: opacity 2s ease-in-out, color 2s ease-in-out;
   font-size: 1.5em;
@@ -307,13 +307,13 @@ header h1, header p{
 
 #scroll-div1 {
   display: inline-block;
-  animation: marquee 30s linear infinite;
+  animation: marquee 18s linear infinite;
 }
 
 #scroll-div2 {
   display: inline-block;
-  animation: marquee2 30s linear infinite;
-  /* animation-delay: 15s; */
+  animation: marquee2 18s linear infinite;
+  /* animation-delay: 10s; */
 }
 
 @keyframes marquee {
