@@ -283,6 +283,50 @@ header h1, header p{
         transform: translate(-50%, -50%);
     } 
 
+/* scrolling part */
+#scroll-div{
+  background-color: var(--cloakroom-gold);
+  color: red;
+  padding: 1em 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+#scroll-div.unhide{
+    opacity: 1;
+}
+
+#scroll-div1 {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+
+#scroll-div2 {
+  display: inline-block;
+  animation: marquee2 20s linear infinite;
+  animation-delay: 10s;
+}
+
+@keyframes marquee {
+  from {transform: translateX(100%);}
+  to {transform: translateX(-100%);}
+}
+
+@keyframes marquee2 {
+  from {transform: translateX(0%);}
+  to {transform: translateX(-200%);}
+}
+
+
+
+
+
 /* .logo-stuck #contact-list{
     opacity: 1;
     

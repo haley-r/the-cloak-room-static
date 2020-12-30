@@ -56,10 +56,12 @@
         }
         // once animationBlobItem is constructed, set up mouse/touch listeners
         initEvents() {
+            let scrollDiv = document.querySelector("#scroll-div");
             this.mouseenterFn = () => {
                 this.mouseTimeout = setTimeout(() => {
                     this.isActive = true;
                     this.animate();
+                    scrollDiv.classList.add("unhide");
                 }, 400);
             }
             this.mouseleaveFn = () => {
@@ -67,6 +69,7 @@
                 if (this.isActive) {
                     this.isActive = false;
                     this.animate();
+                    scrollDiv.classList.remove("unhide");
                 }
             }
 
@@ -75,6 +78,7 @@
                     this.scrollTimeout = setTimeout(() => {
                         this.isActive = true;
                         this.animate();
+                        scrollDiv.classList.add("unhide");
                     }, 75);
                     document.querySelector("#fullbackground").style.backgroundColor = this.DOM.el.dataset.backgroundColor;
                 }
@@ -85,6 +89,7 @@
                         if (this.isActive) {
                             this.isActive = false;
                             this.animate();
+                            scrollDiv.classList.remove("unhide");
                         }
                         document.querySelector("#fullbackground").style.backgroundColor = this.DOM.el.dataset.backgroundColorStart;
                     }
@@ -126,6 +131,7 @@
         constructor(el, body) {
             this.body = body;
             this.background = this.body.querySelector('#fullbackground');
+            this.scrollbar = this.body.querySelector('#scroll-div');
             this.DOM = {};
             this.DOM.el = el;
             this.DOM.item = this.DOM.el.querySelector('.item');
@@ -191,6 +197,7 @@
                     this.animate();
                 }, 75);                
                 this.background.style.backgroundColor = this.DOM.item.dataset.backgroundColor;
+                this.scrollbar.style.color = this.DOM.item.dataset.backgroundColor;
             }
             this.closeAnimation = () => {
                 // after 75 milliseconds, set isActive to false and run animate function
@@ -260,6 +267,11 @@
     // setTimeout(() => document.body.classList.remove('loading'), 2000);
 };
 
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    document.querySelector("#scroll-div").width(document.querySelector("#scroll-div1").width());
+});
+
 window.addEventListener('load', function () {
     // evaluate scroll and put on DOM
     document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px';
@@ -270,6 +282,12 @@ window.addEventListener('load', function () {
     menuButton.addEventListener('click', function(){
         menu.classList.toggle('menu-open')
     })
+
+
+    // document.querySelector("#scroll-div").width(document.querySelector("#scroll-div1").width());
+
+
+
     window.onscroll = function(){   
         // scroll variables
         let scrollFromTop = window.pageYOffset;
