@@ -269,7 +269,9 @@
 
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
-    document.querySelector("#scroll-div").width(document.querySelector("#scroll-div1").width());
+    // document.querySelector("#scroll-div").offsetWidth(document.querySelector("#scroll-div1").offsetWidth());
+    let scrollDivTextWidth = document.querySelector('#scroll-div1').offsetWidth;
+    document.querySelector("#scroll-div").style.width= scrollDivTextWidth;    
 });
 
 window.addEventListener('load', function () {

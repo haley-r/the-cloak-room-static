@@ -287,7 +287,7 @@ header h1, header p{
 #scroll-div{
   background-color: var(--cloakroom-gold);
   color: red;
-  padding: 1em 0;
+  padding: .25em 0;
   overflow: hidden;
   white-space: nowrap;
   position: fixed;
@@ -296,7 +296,10 @@ header h1, header p{
   z-index: 100;
   width: 100vw;
   opacity: 0;
-  transition: opacity 2s ease-in-out;
+  transition: opacity 2s ease-in-out, color 2s ease-in-out;
+  font-size: 1.5em;
+  font-family: "Molle", cursive;
+  text-transform: lowercase;
 }
 #scroll-div.unhide{
     opacity: 1;
@@ -304,23 +307,23 @@ header h1, header p{
 
 #scroll-div1 {
   display: inline-block;
-  animation: marquee 20s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 #scroll-div2 {
   display: inline-block;
-  animation: marquee2 20s linear infinite;
-  animation-delay: 10s;
+  animation: marquee2 30s linear infinite;
+  /* animation-delay: 15s; */
 }
 
 @keyframes marquee {
-  from {transform: translateX(100%);}
+  from {transform: translateX(0%);}
   to {transform: translateX(-100%);}
 }
 
 @keyframes marquee2 {
   from {transform: translateX(0%);}
-  to {transform: translateX(-200%);}
+  to {transform: translateX(-100%);}
 }
 
 
