@@ -258,12 +258,12 @@
                 }
             }
             // // hover events, account for touchscreens
-            // this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
-            // this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
-            // this.DOM.el.addEventListener('touchstart', this.mouseenterFn);
-            // this.DOM.el.addEventListener('touchend', this.mouseleaveFn);
+            this.DOM.el.addEventListener('mouseenter', this.initiateAnimation);
+            this.DOM.el.addEventListener('mouseleave', this.closeAnimation);
+            this.DOM.el.addEventListener('touchstart', this.initiateAnimation);
+            this.DOM.el.addEventListener('touchend', this.closeAnimation);
             window.addEventListener('load', this.writeOffsets);
-            window.addEventListener('scroll', this.animateBasedOnScroll)
+            // window.addEventListener('scroll', this.animateBasedOnScroll)
         }
         getAnimeObj(targetStr) {
             const target = this.DOM[targetStr];
