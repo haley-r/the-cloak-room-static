@@ -163,7 +163,7 @@ header h1, header p{
         transition-delay: 0;
     }
     .page .item.conceal{
-        opacity: .6;
+        opacity: .8;
         transition: opacity 3s;
         transition-delay: 2s;
     }
@@ -393,13 +393,31 @@ header h1, header p{
     fill: #738d2d;
 }
 .item--style-3 .item__deco{
-    fill: #076e5c;
+    fill: #ce8414;
+    fill: #cf8008;
+    fill: #0463cf;
+    fill: #466ee8;
 }
 .item--style-4 .item__deco{
-    fill: rgb(26, 64, 179);
+    /* fill: rgb(26, 64, 179); */
+    /* fill: rgb(206, 117, 9); */
+    /* fill: #07a388; */
+    /* fill: #076e5c; */
+    /* fill: #07a365; */
+    fill: #048a42;
+    fill: #159e29;
+    fill: #296e10;
+    fill: #c43552;
+    fill: #db3f30;
+
+
 }
 .item--style-5 .item__deco{
-    fill: rgb(181, 39, 0);
+    /* fill: rgb(181, 39, 0); */
+    fill: #cf8008;
+    fill: #cf5408;
+    fill: #38a2c2;
+
 }
 
 
