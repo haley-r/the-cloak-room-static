@@ -18,7 +18,7 @@
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Aladin&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Molle:ital@1&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Molle:ital@1&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
@@ -39,6 +39,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rum+Raisin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Timmana&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Wendy+One&display=swap');
+
+
+@font-face {
+  font-family: 'Molle';
+  src: url('../fonts/Molle/Molle-Italic.ttf') format('truetype');
+}
 
 :root {
   --a-black: rgba(45,46,49,1);

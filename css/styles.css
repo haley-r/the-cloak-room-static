@@ -141,7 +141,7 @@ header h1, header p{
     /* height: 70vh; */
     position: relative;
     /* border-top: 1px solid green; */
-    border: 1px dashed green;
+    /* border: 1px dashed green; */
 }
 .page{
     /* opacity: 1; */
@@ -167,24 +167,24 @@ header h1, header p{
         margin: 0;
     }
         #page-1 .item{
-            border: 1px solid red;
+            /* border: 1px solid red; */
             height: 120vw;
         }
         #page-2 .item{
-            border: 1px solid red;
+            /* border: 1px solid red; */
             height: 100vw;
         }
         #page-3 .item{
-            border: 1px solid red;
+            /* border: 1px solid red; */
             height: 80vw;
         }
         #page-4 .item{
-            border: 1px solid red;
+            /* border: 1px solid red; */
             padding-top: 20vw;
             height: 110vw;
         }
         #page-5 .item{
-            border: 1px solid red;
+            /* border: 1px solid red; */
             padding-top: 30vw;
             height: 120vw;
         }
@@ -217,7 +217,7 @@ header h1, header p{
         display: block;
         width: 80%;
         height: auto;
-        border: 1px dotted yellow;
+        /* border: 1px dotted yellow; */
         /* min-height: 500px; */
         margin: 0 auto;
     }
