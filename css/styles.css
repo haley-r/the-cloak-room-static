@@ -163,7 +163,7 @@ header h1, header p{
         transition-delay: 0;
     }
     .page .item.conceal{
-        opacity: .4;
+        opacity: .6;
         transition: opacity 3s;
         transition-delay: 2s;
     }
@@ -328,13 +328,14 @@ header h1, header p{
   z-index: 100;
   /* width: 100vw; */
   opacity: 0;
-  transition: opacity 4s ease-in-out, color 2s ease-in-out;
+  transition: opacity .5s ease-in-out, color 2s ease-in-out;
   font-size: 1.5em;
   font-family: "Molle", cursive;
   text-transform: lowercase;
 }
 #scroll-div.unhide{
     opacity: 1;
+  transition: opacity 2s ease-in-out, color 2s ease-in-out;
 }
 
 #scroll-div1 {
@@ -360,13 +361,13 @@ header h1, header p{
 
 #contact-bottom{
     list-style-type: none;
-    padding: 1em 0 0 0;
+    padding: 1em 0 5em 0;
     margin: 0;
     font-size: 1.75em;
-    position: absolute;
-    left: 50%;
-    bottom: 10%;
-    transform: translateX(-50%);
+    /* position: absolute; */
+    /* left: 50%; */
+    /* bottom: 10%; */
+    /* transform: translateX(-50%); */
 }
 #contact-bottom li{
     text-align: center;
@@ -386,11 +387,19 @@ header h1, header p{
 
 .item--style-1 .item__deco{
     fill: #067c99;
-    stroke-width: 1px;
+    /* stroke-width: 1px; */
 }
 .item--style-2 .item__deco{
     fill: #738d2d;
-    /* stroke-width: 0; */
+}
+.item--style-3 .item__deco{
+    fill: #076e5c;
+}
+.item--style-4 .item__deco{
+    fill: rgb(26, 64, 179);
+}
+.item--style-5 .item__deco{
+    fill: rgb(181, 39, 0);
 }
 
 
