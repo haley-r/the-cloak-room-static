@@ -141,6 +141,7 @@ header h1, header p{
     /* height: 70vh; */
     position: relative;
     /* border-top: 1px solid green; */
+    border: 1px dashed green;
 }
 .page{
     /* opacity: 1; */
@@ -161,7 +162,32 @@ header h1, header p{
         opacity: 1;
         transition: opacity 1s;
         transition-delay: 0;
+        /* border: 1px solid purple; */
+        width: 100vw;
+        margin: 0;
     }
+        #page-1 .item{
+            border: 1px solid red;
+            height: 120vw;
+        }
+        #page-2 .item{
+            border: 1px solid red;
+            height: 100vw;
+        }
+        #page-3 .item{
+            border: 1px solid red;
+            height: 80vw;
+        }
+        #page-4 .item{
+            border: 1px solid red;
+            padding-top: 20vw;
+            height: 110vw;
+        }
+        #page-5 .item{
+            border: 1px solid red;
+            padding-top: 30vw;
+            height: 120vw;
+        }
     .page .item.conceal{
         opacity: .8;
         transition: opacity 3s;
@@ -174,9 +200,9 @@ header h1, header p{
     .page .item {
     /* CODROPS STYLES */
 	position: relative;
-	width: 500px;
-	max-width: 100%;
-	margin: 0 0 0 auto;
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
 	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -191,7 +217,8 @@ header h1, header p{
         display: block;
         width: 80%;
         height: auto;
-        min-height: 500px;
+        border: 1px dotted yellow;
+        /* min-height: 500px; */
         margin: 0 auto;
     }
     .item__clippath,
@@ -212,13 +239,16 @@ header h1, header p{
     padding: 5vw;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
-    z-index: 10;
+    /* z-index: 10; */
 
     margin: 0;
 
     opacity: 1;
     transition: opacity 2s;
     transition-delay: 1s;
+}
+.active .page-text{
+    opacity: 1;
 }
 .page-text.conceal{
         opacity: .4;
@@ -229,6 +259,7 @@ header h1, header p{
     text-align: center;
     font-size: 10vw;
     width: 100vw;
+    padding: 0;
     /* display: none; */
     position: absolute;
     top: 6%;
@@ -249,6 +280,11 @@ header h1, header p{
 
     .gillies-text{
         position: absolute;
+        font-family: "Bungee Shade", sans-serif;
+        top: 25%;
+        width: 100%;
+        font-size: 2em;
+        text-align: center;
     }
 /* contact section */
 #contact-list{
@@ -265,6 +301,7 @@ header h1, header p{
     }
     #contact-list button{
         opacity: 1;
+        /* position: fixed; */
         z-index: 100;
         color: var(--cloakroom-gold);
         width: 3em;
@@ -315,6 +352,16 @@ header h1, header p{
         transform: translate(-50%, -50%);
     } 
 
+
+#etsy-link{
+    font-family: "Coiny", sans-serif;
+}  
+#insta-link{
+    font-family: "Metamorphous", sans-serif;
+}  
+#mail-link{
+    font-family: "Fascinate", sans-serif;
+}  
 /* scrolling part */
 #scroll-div{
   background-color: var(--cloakroom-gold);
@@ -372,9 +419,6 @@ header h1, header p{
 #contact-bottom li{
     text-align: center;
     padding: .5em;
-}
-#page-4{
-    padding-bottom:12em;
 }
 
 
