@@ -159,11 +159,13 @@ header h1, header p{
         overflow: visible;
         /* margin-top: 52vw; */
         opacity: 1;
-        transition: opacity 3s;
-        transition-delay: 2s;
+        transition: opacity 1s;
+        transition-delay: 0;
     }
     .page .item.conceal{
         opacity: .4;
+        transition: opacity 3s;
+        transition-delay: 2s;
     }
     .page .item svg{
         width: 100vw;
@@ -200,11 +202,12 @@ header h1, header p{
     }
     .item__deco{
         fill: rgb(8, 131, 161);
+        stroke-width: 0;
     }
 .page-text{
     /* display: none; */
     position: relative;
-    transform: translateY(-5em);
+    /* transform: translateY(-1em); */
     font-size: 1.4em;
     padding: 5vw;
     font-family: 'Josefin Sans', sans-serif;
@@ -231,7 +234,7 @@ header h1, header p{
     top: 6%;
     opacity: 1;
     transition: opacity 2s;
-    transition-delay: 2s;
+    transition-delay: 6s;
 }
     #page-1 .intro-text span{
     display: block;
@@ -379,6 +382,20 @@ header h1, header p{
     opacity: 1;
     
 } */
+
+
+.item--style-1 .item__deco{
+    fill: #067c99;
+    stroke-width: 1px;
+}
+.item--style-2 .item__deco{
+    fill: #738d2d;
+    /* stroke-width: 0; */
+}
+
+
+
+
 
 @media only screen and (min-width: 300px) {
     /* .logo-stuck #contact-list{
