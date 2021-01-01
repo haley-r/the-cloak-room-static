@@ -320,6 +320,22 @@ window.addEventListener('load', function () {
         menu.classList.toggle('menu-open')
     })
 
+    let email = document.querySelector("#mail-link a");
+
+    function toggleEmail(){
+        if (email.innerHTML=="email"){
+            email.innerHTML ="thecloakroomdesign @ gmail.com";     
+        } else {
+            email.innerHTML = "email";
+        }
+    }
+
+    email.addEventListener('mouseenter', toggleEmail);
+    email.addEventListener('mouseleave', toggleEmail);
+    email.addEventListener('touchstart', toggleEmail);
+    email.addEventListener('touchend', toggleEmail);
+
+
 
     // document.querySelector("#scroll-div").width(document.querySelector("#scroll-div1").width());
 
