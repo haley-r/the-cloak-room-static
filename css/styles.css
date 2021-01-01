@@ -468,7 +468,13 @@ header h1, header p{
 
 
 
-@media only screen and (min-width: 300px) {
+@media only screen and (min-width: 500px) {
+    .item__svg{
+        max-width: 100%;
+    }
+    
+
+
     /* .logo-stuck #contact-list{
     opacity: 1;
 }
@@ -480,6 +486,55 @@ header h1, header p{
         padding: .5em;
     } */
 }
+@media only screen and (min-width: 700px) {
+    #main-logo.sticky{
+        max-width: 32vw;
+        transform: translate(-8vw, -8vw);
+    }
+    #page-1 .item{
+            /* border: 1px solid red; */
+            height: 100vw;
+        }
+        #page-2 .item{
+            /* border: 1px solid red; */
+            height: 70vw;
+        }
+        #page-3 .item{
+            /* border: 1px solid red; */
+            height: 55vw;
+        }
+        #page-4 .item{
+            /* border: 1px solid red; */
+            padding-top: 20vw;
+            height: 80vw;
+        }
+        #page-5 .item{
+            /* border: 1px solid red; */
+            padding-top: 30vw;
+            height: 100vw;
+        }
+    .page-text.conceal{
+        opacity: .9;
+    }
+    .gillies-text{
+        top: 34%;
+        font-size: 2.6em;;
+    }
+}
+
+
+
+
+ /* .page{
+        border: 1px dotted red;
+    }
+    .item{
+        border: 1px dotted blue;
+    }
+    .item__svg{
+        border: 1px dotted white;
+        max-width: 100%;
+    } */
 
 @media only screen and (orientation:landscape){
     /* general styles */
@@ -509,6 +564,78 @@ header h1, header p{
         /* position: fixed; */
         transform: translate(-48vw, -38vh);
     }
+
+     .page{
+        /* border: 1px dotted red; */
+        margin-bottom: 10vh;
+    }
+    .item{
+        /* border: 1px dotted blue; */
+        padding-left: 25vh;
+    }
+    .item__svg{
+        /* border: 1px dotted white; */
+        max-width: 100%;
+    }
+        #page-1 .item{
+            /* border: 1px solid red; */
+            height: auto;
+        }
+        #page-2 .item{
+            /* border: 1px solid red; */
+            height: auto;
+        }
+        #page-3 .item{
+            /* border: 1px solid red; */
+            height: auto;
+        }
+        #page-4 .item{
+            /* border: 1px solid red; */
+            padding-top: 0;
+            height: auto;
+            position: relative;
+        }
+        #page-5 .item{
+            /* border: 1px solid red; */
+            padding-top: 0;
+            height: auto;
+        }
+    #page-1 .intro-text{
+        font-size: 8vh;
+        left: 12vh;
+    }
+    .gillies-text{
+        font-size: 2em;
+        position: absolute;
+        /* border: 2px solid green; */
+        width: 50vw;
+        right: 4.5em;
+        top: 16%;
+    }
+    .page-text{
+        /* border: 1px solid green; */
+        padding: 0 10vh 0 45vh;
+    }
+    .item.conceal{
+        opacity: 1;
+    }
+    .page-text.conceal{
+        opacity: 1;
+    }
+    #contact-bottom{
+        padding-bottom: 3em;
+    }
     /* other page styles */
     /* contact section */
+
+
+@media only screen and (min-height: 600px) {
+     .page .item {
+         max-width: 800px;
+     }
+     .gillies-text{
+         font-size: 3em;
+         transform: translateY(1em);
+     }
+}
 }
