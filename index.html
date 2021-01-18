@@ -4,23 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>THE CLOAK ROOM</title>
+    <!-- favicon links -->
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-
+    <!-- css  -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="./css/fonts-colors.css" />
     <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <!-- not sure what this is for, from codrops code -->
     <script>document.documentElement.className = 'js';</script>
 </head>
 <body>
-    <!-- THIS ELEMENT GETS STYLED BY JS UPON ANIMATION -->
+    <!-- this element is given background color in main.js when animations are triggered -->
     <div id="fullbackground"></div>
-    <!-- DEFS FOR DECO SHAPES -->
+    <!-- svg definitions for expanding animated shapes -->
     <svg style="display: none;">
         <defs>  
             <symbol class= "circle" viewBox="0 0 500 500">
@@ -39,15 +41,15 @@
                 d="M115.42.05C45.17,3.15-8.82,109.26,1.2,147.08c12,45.31,25,140.92,110.29,140.92,66.7,0,91.06-26.91,115.07-117.06S172-2.44,115.42.05Z"/>
         </defs>
     </svg>
-    <!-- FIRST "PAGE" (CIRCLE HEADER THING)- not included in count -->
-    <div class="first-page">
+    <!-- Header Page- special circle animation -->
+    <div class="page-0">
         <header>
             <h1>The Cloak Room</h1>
             <p>Upholstery & Design</p>
             <p>Minneapolis, MN</p>
             <div id="header-rectangle">
                 <div class="wrapper" id="wrapper">
-                    <div class="first-page-circle"
+                    <div class="page-0-circle"
                         data-animation-path-duration="1800" 
                         data-animation-path-easing="easeInOutCubic"
                         data-path-elasticity="300"
@@ -87,7 +89,16 @@
             </div>
         </header>  
     </div>
-    <!-- SCROLLING MARQUEE TEXT -->
+    <!-- Top Contact Links -->
+    <nav id="contact-list">
+        <button id="menu-button"><i class="fas fa-ellipsis-v"></i></button>
+        <ul>
+            <li><a href="https://www.etsy.com/shop/thecloakroomMN" target="_blank"><i class="fab fa-etsy"></i></a></li>
+            <li><a href="https://www.instagram.com/cloakroommn/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="mailto:thecloakroomdesign@gmail.com" target="_blank"><i class="far fa-envelope"></i></a></li>
+        </ul>
+    </nav>
+    <!-- fixed scrolling marquee (text could be inserted with JavaScript instead) -->
     <div id="scroll-div">
         <div id="scroll-div1">
             Life's A Trip So Have A Sit...&nbsp;&nbsp;Life's A Trip So Have A Sit...&nbsp;&nbsp;Life's A Trip So Have A Sit...&nbsp;&nbsp;Life's A Trip So Have A Sit...&nbsp;&nbsp;Life's A Trip So Have A Sit...&nbsp;&nbsp;Life's A Trip So Have A
@@ -98,10 +109,7 @@
             Sit...&nbsp;&nbsp;
         </div>
     </div>
-
-<!-- DON'T FORGET TO ADD PRODUCT DIMENSIONS -->
-
-    <!-- FIRST PAGE (stool intro) -->
+    <!-- Page 1 : Introducing the Mushroom Ottoman -->
     <div class = "page"  id="page-1">
         <p class="offset-top"></p>
         <p class="other-offset"></p>
@@ -131,11 +139,9 @@
         <div class="intro-text page-text">
             <p><span>Introducing</span> the Mushroom Ottoman</p>
         </div>
-        <!-- <div class="page-text">
-            <p>These comfortable classic mushroom ottomans will be the fungi of many a hangout or stay-ins! Each one of a kind,handmade using recycled materials. We’ve got a classic mushroom style ottoman and a modern toadstool style ottoman available.</p>
-        </div> -->
+        <!-- add product dimensions? -->
     </div>
-    <!-- SECOND PAGE (about the product) -->
+    <!-- Page 2 : More about the Product -->
     <div class="page" id="page-2">
         <p class="offset-top"></p>
         <p class="other-offset"></p>
@@ -171,6 +177,7 @@
             <p>Each is one of a kind, made by hand with recycled materials. We’ve got a classic mushroom style ottoman and a modern toadstool style ottoman available.</p>
         </div>
     </div>
+    <!-- Page 3 : Gillies Teaser -->
     <div class="page" id="page-3">
         <p class="offset-top"></p>
         <p class="other-offset"></p>
@@ -207,6 +214,7 @@
             <p>Retro or contemporary, all of our ottomans have a psychedelic surprise under the cap...</p>
         </div>
     </div>
+    <!-- Page 4 : About Gillies -->
     <div class="page" id="page-4">
         <p class="offset-top"></p>
         <p class="other-offset"></p>
@@ -245,6 +253,7 @@
             <p>This new unique effect is entirely created by hand using only fabric and one of a kind for each ottoman.</p>
         </div>
     </div>
+    <!-- Page 5 : Call to Action -->
     <div class="page" id="page-5">
         <p class="offset-top"></p>
         <p class="other-offset"></p>
@@ -280,19 +289,13 @@
             <p>We believe variety is the spice of life and we know your space is your space. Browse our selection of ready-to-ship ottomans or get in touch about dreaming up something customized for you!</p>
         </div>
     </div>
+    <!-- Bottom Contact Links -->
     <ul id="contact-bottom">
         <li id="etsy-link"><a href="https://www.etsy.com/shop/thecloakroomMN" target="_blank">etsy shop</a></li>
         <li id="insta-link"><a href="https://www.instagram.com/cloakroommn/" target="_blank">instagram</a></li>
         <li id="mail-link"><a href="mailto:thecloakroomdesign@gmail.com" target="_blank">email</a></li>
     </ul>
-    <nav id="contact-list">
-        <button id="menu-button"><i class="fas fa-ellipsis-v"></i></button>
-        <ul>
-            <li><a href="https://www.etsy.com/shop/thecloakroomMN" target="_blank"><i class="fab fa-etsy"></i></a></li>
-            <li><a href="https://www.instagram.com/cloakroommn/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="mailto:thecloakroomdesign@gmail.com" target="_blank"><i class="far fa-envelope"></i></a></li>
-        </ul>
-    </nav>
+   
     <p id="showScroll"></p>
     <script src="./js/anime.min.js"></script>
     <script src="./js/main.js"></script>
