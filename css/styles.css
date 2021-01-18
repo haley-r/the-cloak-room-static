@@ -95,24 +95,24 @@ header h1, header p{
         position: relative;
         overflow:visible;
     }
-.first-page{
+.page-0{
     width: 100vw;
     height: 100vh;
     position: relative;
 }
-    .first-page-circle image{
+    .page-0-circle image{
         transform-origin: 50% 50%;
     }
-    .first-page-circle path{
+    .page-0-circle path{
         transform-origin: 50% 50%;
     }
-    .first-page-circle>svg{
+    .page-0-circle>svg{
         width: 93vw;
         height: 93vw;
         overflow:visible;
         transform: scale(1);
     }
-    .first-page .border{
+    .page-0 .border{
      stroke: var(--cloakroom-gold);
      stroke-width: 2px;
      fill: rgb(0, 128, 49);
@@ -542,7 +542,7 @@ header h1, header p{
     #header-rectangle{
         flex-direction: row;
     }
-    .first-page-circle>svg{
+    .page-0-circle>svg{
         height:93vh;
         width: 93vh;
         overflow:visible;
@@ -627,7 +627,12 @@ header h1, header p{
     }
     /* other page styles */
     /* contact section */
+-
 
+body {
+    overflow-x: hidden; //horizontal
+    /* overflow-y: scroll; //vertical */
+}
 
 @media only screen and (min-height: 600px) {
      .page .item {

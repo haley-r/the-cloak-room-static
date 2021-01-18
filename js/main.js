@@ -294,7 +294,7 @@
     }
 
     const body = document.querySelector("body")
-    const firstPageCircleArray = Array.from(document.querySelectorAll('.first-page-circle'));
+    const firstPageCircleArray = Array.from(document.querySelectorAll('.page-0-circle'));
     const initCircle = (() => firstPageCircleArray.forEach(item => new animationCircleItem(item, body)))();
     const pageArray = Array.from(document.querySelectorAll('.page'));
     const initPages = (() => pageArray.forEach(item => new pageItem(item, body)))();
@@ -311,7 +311,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 window.addEventListener('load', function () {
     // evaluate scroll and put on DOM
-    document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px';
+    // document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px';
     // name elements
     let menuButton=document.querySelector('#menu-button');
     let menu = document.querySelector('#contact-list');
@@ -350,7 +350,7 @@ window.addEventListener('load', function () {
         let distance = (logoOffset + wrapperOffset - scrollFromTop);
         let logoOffsetLeft = logo.offsetLeft;  
         // evaluate scroll and put on DOM
-        document.getElementById('showScroll').innerHTML = scrollFromTop + 'px';
+        // document.getElementById('showScroll').innerHTML = scrollFromTop + 'px';
         // sticky the logo when appropriate
         if (window.innerHeight>window.innerWidth) {
             if (distance < 1.5 * logoOffsetLeft) {
