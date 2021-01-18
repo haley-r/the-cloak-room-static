@@ -2,6 +2,7 @@
 // https://github.com/codrops/OrganicShapeAnimations/
 
 { // make js objects out of html elements
+    //this class is basically the same as pageItem, could reintegrate it probably
     class animationCircleItem {
         constructor(el) {
             this.body = body;
@@ -54,25 +55,9 @@
             };
             this.initEvents();
         }
-        // once animationBlobItem is constructed, set up mouse/touch listeners
+        // once object is constructed, set up mouse/touch listeners
         initEvents() {
             let scrollDiv = document.querySelector("#scroll-div");
-            this.mouseenterFn = () => {
-                this.mouseTimeout = setTimeout(() => {
-                    this.isActive = true;
-                    this.animate();
-                    scrollDiv.classList.add("unhide");
-                }, 400);
-            }
-            this.mouseleaveFn = () => {
-                clearTimeout(this.mouseTimeout);
-                if (this.isActive) {
-                    this.isActive = false;
-                    this.animate();
-                    scrollDiv.classList.remove("unhide");
-                }
-            }
-
             this.scrollKickoffFn = () => {
                 if (!this.isActive && window.pageYOffset > 15) {
                     this.scrollTimeout = setTimeout(() => {
@@ -84,7 +69,6 @@
                 }
                 else {
                     if (window.pageYOffset===0){
-                        // console.log('back at top');
                         clearTimeout(this.scrollTimeout);
                         if (this.isActive) {
                             this.isActive = false;
@@ -95,10 +79,7 @@
                     }
                 }
             }
-
             window.addEventListener('scroll', this.scrollKickoffFn);
-
-
         }
         getAnimeObj(targetStr) {
             const target = this.DOM[targetStr];
@@ -127,6 +108,7 @@
             anime(this.getAnimeObj('border'));
         }
     }
+    // pageItems are the group of elements that are affected by animation on each page
     class pageItem {
         constructor(el, body) {
             function getPosition(element) {
@@ -203,13 +185,7 @@
             this.initEvents();
         }
         initEvents() {
-            this.writeOffsets=()=>{
-                this.DOM.offsetTopP.innerHTML=this.DOM.offsetNumber;
-                this.DOM.offsetTopO.innerHTML = `item: ${this.DOM.itemOffsetTop}, pagetext: ${this.DOM.pageTextOffsetTop}`;
-
-            }
             this.initiateAnimation = () => {
-                // after 75 milliseconds, set isActive to true and run animate function
                 this.mouseTimeout = setTimeout(() => {
                     this.isActive = true;
                     this.animate();
@@ -218,7 +194,6 @@
                 this.scrollbar.style.color = this.DOM.item.dataset.backgroundColor;
             }
             this.closeAnimation = () => {
-                // after 75 milliseconds, set isActive to false and run animate function
                 clearTimeout(this.mouseTimeout);
                 if (this.isActive) {
                     this.isActive = false;
@@ -257,12 +232,6 @@
                     pagetext.classList.remove("conceal");
                 }
             }
-            // // hover events, account for touchscreens
-            // this.DOM.el.addEventListener('mouseenter', this.initiateAnimation);
-            // this.DOM.el.addEventListener('mouseleave', this.closeAnimation);
-            // this.DOM.el.addEventListener('touchstart', this.initiateAnimation);
-            // this.DOM.el.addEventListener('touchend', this.closeAnimation);
-            window.addEventListener('load', this.writeOffsets);
             window.addEventListener('scroll', this.animateBasedOnScroll)
         }
         getAnimeObj(targetStr) {
@@ -298,20 +267,15 @@
     const initCircle = (() => firstPageCircleArray.forEach(item => new animationCircleItem(item, body)))();
     const pageArray = Array.from(document.querySelectorAll('.page'));
     const initPages = (() => pageArray.forEach(item => new pageItem(item, body)))();
-
-    // setTimeout(() => document.body.classList.remove('loading'), 2000);
 };
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
-    // document.querySelector("#scroll-div").offsetWidth(document.querySelector("#scroll-div1").offsetWidth());
+    //this sets the width of the marquee divs based on window width
     let scrollDivTextWidth = document.querySelector('#scroll-div1').offsetWidth;
     document.querySelector("#scroll-div").style.width= scrollDivTextWidth;    
 });
 
 window.addEventListener('load', function () {
-    // evaluate scroll and put on DOM
-    // document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px';
     // name elements
     let menuButton=document.querySelector('#menu-button');
     let menu = document.querySelector('#contact-list');
@@ -322,6 +286,7 @@ window.addEventListener('load', function () {
 
     let email = document.querySelector("#mail-link a");
 
+    //show actual email address instead of 'email'
     function toggleEmail(){
         if (email.innerHTML=="email"){
             email.innerHTML ="thecloakroomdesign @ gmail.com";     
@@ -335,12 +300,6 @@ window.addEventListener('load', function () {
     email.addEventListener('touchstart', toggleEmail);
     email.addEventListener('touchend', toggleEmail);
 
-
-
-    // document.querySelector("#scroll-div").width(document.querySelector("#scroll-div1").width());
-
-
-
     window.onscroll = function(){   
         // scroll variables
         let scrollFromTop = window.pageYOffset;
@@ -350,7 +309,6 @@ window.addEventListener('load', function () {
         let distance = (logoOffset + wrapperOffset - scrollFromTop);
         let logoOffsetLeft = logo.offsetLeft;  
         // evaluate scroll and put on DOM
-        // document.getElementById('showScroll').innerHTML = scrollFromTop + 'px';
         // sticky the logo when appropriate
         if (window.innerHeight>window.innerWidth) {
             if (distance < 1.5 * logoOffsetLeft) {
