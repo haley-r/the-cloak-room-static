@@ -47,7 +47,7 @@ html {
 }
 /* general styles */
 body {
-    background-color: var(--a-black);
+    background-color: var(--cloakroom-black);
     color: var(--cloakroom-gold);
     font-family: 'Josefin Sans', sans-serif;
 }
