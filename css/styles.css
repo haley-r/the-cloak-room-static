@@ -1,37 +1,6 @@
 /* prefers-reduced-motion */
 
 
-
-/* temporary styles- delete for final version */
-#showScroll{
-    display:none;
-    /* opacity: 0; */
-    position:fixed;
-    z-index: 100;
-    top: 0;
-    left: 10px;
-}
-.offset-top, .other-offset{
-    display: none;
-    position: absolute;
-}
-/* @media screen and (max-width: 60em) {
-	.item:first-of-type {
-		grid-column: span 2;
-	}
-	.content--grid {
-		grid-row-gap: 25vh;
-	}
-}
-@media screen and (max-width: 40em) {
-	.content--grid {
-		padding: 2vh 8vw;
-	}
-	.item__svg {
-		min-height: 360px;
-	}
-} */
-
 /* PORTRAIT/UNIVERSAL STYLES, STARTING WITH MOBILE */
 
 /* css tricks border box reset */
@@ -50,7 +19,14 @@ body {
     background-color: var(--cloakroom-black);
     color: var(--cloakroom-gold);
     font-family: 'Josefin Sans', sans-serif;
+    overflow-x: hidden; 
 }
+    /* these elements are just for measurement, not display */
+    .offset-top, .other-offset{
+        display: none;
+        position: absolute;
+    }
+/* this element gets its color changed in main.js upon animations */
 #fullbackground{
     background-color: #ce2e0e;
     height: 100vh;
@@ -138,53 +114,39 @@ header h1, header p{
 
 /* other page styles */
 .page{
-    /* height: 70vh; */
     position: relative;
-    /* border-top: 1px solid green; */
-    /* border: 1px dashed green; */
-}
-.page{
-    /* opacity: 1; */
-    /* transition: opacity 0s; */
-    /* transition-delay: 0s; */
-}
-.page.active{
-    /* border: 1px solid tomato; */
-}
-.page.deactive{
-    /* opacity: .3; */
-    /* transition: opacity 3s ease-in-out; */
-    /* transition-delay: 2s; */
 }
     .page .item{
         overflow: visible;
-        /* margin-top: 52vw; */
         opacity: 1;
         transition: opacity 1s;
         transition-delay: 0;
-        /* border: 1px solid purple; */
         width: 100vw;
-        margin: 0;
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        grid-column: span 2;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
         #page-1 .item{
-            /* border: 1px solid red; */
             height: 120vw;
         }
         #page-2 .item{
-            /* border: 1px solid red; */
             height: 100vw;
         }
         #page-3 .item{
-            /* border: 1px solid red; */
             height: 80vw;
         }
         #page-4 .item{
-            /* border: 1px solid red; */
             padding-top: 20vw;
             height: 110vw;
         }
         #page-5 .item{
-            /* border: 1px solid red; */
             padding-top: 30vw;
             height: 120vw;
         }
@@ -197,34 +159,17 @@ header h1, header p{
         width: 100vw;
         overflow: visible;
     }
-    .page .item {
-    /* CODROPS STYLES */
-	position: relative;
-	width: 100%;
-	max-width: 500px;
-	margin: 0 auto;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	grid-column: span 2;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-    }
     .page .item__svg {
         /* CODROPS STYLES */
         position: relative;
         display: block;
         width: 80%;
         height: auto;
-        /* border: 1px dotted yellow; */
-        /* min-height: 500px; */
         margin: 0 auto;
     }
     .item__clippath,
     .item__deco,
     .item__img {
-        /* CODROPS STYLES */
         transform-origin: 50% 50%;
     }
     .item__deco{
@@ -232,17 +177,12 @@ header h1, header p{
         stroke-width: 0;
     }
 .page-text{
-    /* display: none; */
     position: relative;
-    /* transform: translateY(-1em); */
     font-size: 1.4em;
     padding: 5vw;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
-    /* z-index: 10; */
-
     margin: 0;
-
     opacity: 1;
     transition: opacity 2s;
     transition-delay: 1s;
@@ -260,7 +200,6 @@ header h1, header p{
     font-size: 10vw;
     width: 100vw;
     padding: 0;
-    /* display: none; */
     position: absolute;
     top: 6%;
     opacity: 1;
@@ -273,11 +212,7 @@ header h1, header p{
     }
     #page-1.active .intro-text{
         opacity: 0;
-        /* transition: opacity .5s;
-        transition-delay: 0; */
     }
-
-
     .gillies-text{
         position: absolute;
         font-family: "Bungee Shade", sans-serif;
@@ -301,7 +236,6 @@ header h1, header p{
     }
     #contact-list button{
         opacity: 1;
-        /* position: fixed; */
         z-index: 100;
         color: var(--cloakroom-gold);
         width: 3em;
@@ -351,8 +285,6 @@ header h1, header p{
         left: 50%;
         transform: translate(-50%, -50%);
     } 
-
-
 #etsy-link{
     font-family: "Coiny", sans-serif;
 }  
@@ -373,7 +305,6 @@ header h1, header p{
   bottom: 0;
   left: 0;
   z-index: 100;
-  /* width: 100vw; */
   opacity: 0;
   transition: opacity .5s ease-in-out, color 2s ease-in-out;
   font-size: 1.5em;
@@ -382,134 +313,74 @@ header h1, header p{
 }
 #scroll-div.unhide{
     opacity: 1;
-  transition: opacity 2s ease-in-out, color 2s ease-in-out;
+    transition: opacity 2s ease-in-out, color 2s ease-in-out;
 }
-
 #scroll-div1 {
   display: inline-block;
   animation: marquee 30s linear infinite;
 }
-
 #scroll-div2 {
   display: inline-block;
   animation: marquee2 30s linear infinite;
-  /* animation-delay: 10s; */
 }
-
 @keyframes marquee {
   from {transform: translateX(0%);}
   to {transform: translateX(-100%);}
 }
-
 @keyframes marquee2 {
   from {transform: translateX(0%);}
   to {transform: translateX(-100%);}
 }
-
 #contact-bottom{
     list-style-type: none;
     padding: 1em 0 5em 0;
     margin: 0;
     font-size: 1.75em;
-    /* position: absolute; */
-    /* left: 50%; */
-    /* bottom: 10%; */
-    /* transform: translateX(-50%); */
 }
 #contact-bottom li{
     text-align: center;
     padding: .5em;
 }
-
-
-
-/* .logo-stuck #contact-list{
-    opacity: 1;
-    
-} */
-
-
 .item--style-1 .item__deco{
     fill: #067c99;
-    /* stroke-width: 1px; */
 }
 .item--style-2 .item__deco{
     fill: #738d2d;
 }
 .item--style-3 .item__deco{
-    fill: #ce8414;
-    fill: #cf8008;
-    fill: #0463cf;
     fill: #466ee8;
 }
 .item--style-4 .item__deco{
-    /* fill: rgb(26, 64, 179); */
-    /* fill: rgb(206, 117, 9); */
-    /* fill: #07a388; */
-    /* fill: #076e5c; */
-    /* fill: #07a365; */
-    fill: #048a42;
-    fill: #159e29;
-    fill: #296e10;
-    fill: #c43552;
     fill: #db3f30;
-
-
 }
 .item--style-5 .item__deco{
-    /* fill: rgb(181, 39, 0); */
-    fill: #cf8008;
-    fill: #cf5408;
     fill: #38a2c2;
-
 }
-
-
-
-
 
 @media only screen and (min-width: 500px) {
     .item__svg{
         max-width: 100%;
     }
-    
-
-
-    /* .logo-stuck #contact-list{
-    opacity: 1;
-}
-    #contact-list li{
-        display: inline-block;
-    }
-    #contact-list li i{
-        font-size: 1.5em;
-        padding: .5em;
-    } */
 }
 @media only screen and (min-width: 700px) {
     #main-logo.sticky{
         max-width: 32vw;
         transform: translate(-8vw, -8vw);
     }
-    #page-1 .item{
-            /* border: 1px solid red; */
+        #page-1 .item{
             height: 100vw;
         }
         #page-2 .item{
-            /* border: 1px solid red; */
             height: 70vw;
         }
         #page-3 .item{
-            /* border: 1px solid red; */
             height: 55vw;
         }
         #page-4 .item{
-            /* border: 1px solid red; */
             padding-top: 20vw;
             height: 80vw;
         }
         #page-5 .item{
-            /* border: 1px solid red; */
             padding-top: 30vw;
             height: 100vw;
         }
@@ -521,21 +392,6 @@ header h1, header p{
         font-size: 2.6em;;
     }
 }
-
-
-
-
- /* .page{
-        border: 1px dotted red;
-    }
-    .item{
-        border: 1px dotted blue;
-    }
-    .item__svg{
-        border: 1px dotted white;
-        max-width: 100%;
-    } */
-
 @media only screen and (orientation:landscape){
     /* general styles */
     /* header/first page styles */
@@ -551,52 +407,37 @@ header h1, header p{
     #main-logo{
         width: 40vh;
         position: fixed;
-        /* bottom: 16vh; */
         top: 44vh;
         left: 50%;
         transform: translateX(-35vh);
-        /* left: 9vh; */
-        /* position: absolute; */
     }
     #main-logo.sticky{
-        /* top: 5vh; */
-        /* left: 11vh; */
-        /* position: fixed; */
         transform: translate(-48vw, -38vh);
     }
-
      .page{
-        /* border: 1px dotted red; */
         margin-bottom: 10vh;
     }
     .item{
-        /* border: 1px dotted blue; */
         padding-left: 25vh;
     }
     .item__svg{
-        /* border: 1px dotted white; */
         max-width: 100%;
     }
         #page-1 .item{
-            /* border: 1px solid red; */
             height: auto;
         }
         #page-2 .item{
-            /* border: 1px solid red; */
             height: auto;
         }
         #page-3 .item{
-            /* border: 1px solid red; */
             height: auto;
         }
         #page-4 .item{
-            /* border: 1px solid red; */
             padding-top: 0;
             height: auto;
             position: relative;
         }
         #page-5 .item{
-            /* border: 1px solid red; */
             padding-top: 0;
             height: auto;
         }
@@ -607,13 +448,11 @@ header h1, header p{
     .gillies-text{
         font-size: 2em;
         position: absolute;
-        /* border: 2px solid green; */
         width: 50vw;
         right: 4.5em;
         top: 16%;
     }
     .page-text{
-        /* border: 1px solid green; */
         padding: 0 10vh 0 45vh;
     }
     .item.conceal{
@@ -625,15 +464,9 @@ header h1, header p{
     #contact-bottom{
         padding-bottom: 3em;
     }
-    /* other page styles */
-    /* contact section */
--
-
 body {
     overflow-x: hidden; //horizontal
-    /* overflow-y: scroll; //vertical */
 }
-
 @media only screen and (min-height: 600px) {
      .page .item {
          max-width: 800px;
