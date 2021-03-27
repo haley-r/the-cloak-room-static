@@ -185,6 +185,15 @@
                         opacityend: 0,
                     },
                     background: {
+                        duration: this.DOM.item.dataset.animationImageDuration || 2000,
+                        delay: this.DOM.item.dataset.animationImageDelay || 0,
+                        easing: this.DOM.item.dataset.animationImageEasing || 'easeOutElastic',
+                        elasticity: this.DOM.item.dataset.imageElasticity || 400,
+                        scaleX: this.DOM.item.dataset.imageScalex || 1.1,
+                        scaleY: this.DOM.item.dataset.imageScaley || 1.1,
+                        translateX: this.DOM.item.dataset.imageTranslatex || 0,
+                        translateY: this.DOM.item.dataset.imageTranslatey || 0,
+                        rotate: this.DOM.item.dataset.imageRotate || 0,
                         opacitystart: 0,
                         opacityend: 1,
                         // rotate: this.DOM.item.dataset.decoRotate || 0,
@@ -199,12 +208,14 @@
                     this.isActive = true;
                     this.animate();
                 }, 75);   
+                console.log("initiating animation")
                 // don't do this color change, do by opacity instead.             
                 // this.background.style.backgroundColor = this.DOM.item.dataset.backgroundColor;
                 this.scrollbar.style.color = this.DOM.item.dataset.backgroundColor;
             }
             this.closeAnimation = () => {
                 clearTimeout(this.animationTimeout);
+                console.log("closing animation")
                 if (this.isActive) {
                     this.isActive = false;
                     this.animate();

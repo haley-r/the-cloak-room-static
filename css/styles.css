@@ -23,7 +23,7 @@ body {
 }
     /* these elements are just for measurement, not display */
     .offset-top, .other-offset{
-        display: none;
+        /* display: none; */
         position: absolute;
     }
 /* this element gets its color changed in main.js upon animations */
