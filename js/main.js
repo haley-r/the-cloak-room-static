@@ -150,10 +150,8 @@
                         delay: this.DOM.item.dataset.animationPathDelay || 0,
                         easing: this.DOM.item.dataset.animationPathEasing || 'easeOutElastic',
                         elasticity: this.DOM.item.dataset.pathElasticity || 400,
-                        // scaleX: this.DOM.item.dataset.pathScalex || 1,
-                        // scaleY: this.DOM.item.dataset.pathScaley || 1,
-                        scaleX: 5,
-                        scaleY: 5,
+                        scaleX: this.DOM.item.dataset.pathScalex || 1,
+                        scaleY: this.DOM.item.dataset.pathScaley || 1,
                         translateX: this.DOM.item.dataset.pathTranslatex || 0,
                         translateY: this.DOM.item.dataset.pathTranslatey || 0,
                         rotate: this.DOM.item.dataset.pathRotate || 0,
@@ -179,8 +177,10 @@
                         delay: this.DOM.item.dataset.animationDecoDelay || 0,
                         easing: this.DOM.item.dataset.animationDecoEasing || 'easeOutQuad',
                         elasticity: this.DOM.item.dataset.decoElasticity || 400,
-                        scaleX: this.DOM.item.dataset.decoScalex || 0.9,
-                        scaleY: this.DOM.item.dataset.decoScaley || 0.9,
+                        // scaleX: this.DOM.item.dataset.decoScalex || 0.9,
+                        // scaleY: this.DOM.item.dataset.decoScaley || 0.9,
+                        scaleX: 5,
+                        scaleY: 5,
                         translateX: this.DOM.item.dataset.decoTranslatex || 0,
                         translateY: this.DOM.item.dataset.decoTranslatey || 0,
                         rotate: this.DOM.item.dataset.decoRotate || 0,
@@ -237,7 +237,9 @@
                     this.DOM.el.classList.remove("deactive");
                     this.initiateAnimation();
                 } 
-                if (ratio < -.2 && ratio > .7){
+                // else
+                if (ratio < -.3 || ratio > .8)
+                {
                     this.DOM.offsetTopP.innerHTML = `deactivated ${target}`
                     this.DOM.el.classList.remove("active");
                     this.DOM.el.classList.add("deactive");
