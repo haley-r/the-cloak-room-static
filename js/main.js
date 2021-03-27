@@ -6,7 +6,7 @@
     class animationCircleItem {
         constructor(el) {
             this.body = body;
-            this.background = this.body.querySelector('#fullbackground');
+            // this.background = this.body.querySelector('#fullbackground');
             this.DOM = {};
             this.DOM.el = el;
             this.DOM.svg = this.DOM.el.querySelector('.item__svg');
@@ -65,7 +65,7 @@
                         this.animate();
                         scrollDiv.classList.add("unhide");
                     }, 75);
-                    document.querySelector("#fullbackground").style.backgroundColor = this.DOM.el.dataset.backgroundColor;
+                    // document.querySelector("#fullbackground").style.backgroundColor = this.DOM.el.dataset.backgroundColor;
                 }
                 else {
                     if (window.pageYOffset===0){
@@ -75,7 +75,7 @@
                             this.animate();
                             scrollDiv.classList.remove("unhide");
                         }
-                        document.querySelector("#fullbackground").style.backgroundColor = this.DOM.el.dataset.backgroundColorStart;
+                        // document.querySelector("#fullbackground").style.backgroundColor = this.DOM.el.dataset.backgroundColorStart;
                     }
                 }
             }
@@ -121,7 +121,7 @@
             }
 
             this.body = body;
-            this.background = this.body.querySelector('#fullbackground');
+            // this.background = this.body.querySelector('#fullbackground');
             this.scrollbar = this.body.querySelector('#scroll-div');
             this.DOM = {};
             this.DOM.el = el;
@@ -134,6 +134,7 @@
             this.DOM.deco = this.DOM.svg.querySelector('.item__deco');
             this.DOM.image = this.DOM.svg.querySelector('image');
             this.DOM.pageText = this.DOM.el.querySelector(".page-text")
+            this.DOM.background = this.DOM.item.querySelector(".fullbackground")
 
             this.DOM.itemOffsetTop = getPosition(this.DOM.item);
             this.DOM.pageTextOffsetTop = getPosition(this.DOM.pageText);
@@ -179,6 +180,10 @@
                         translateY: this.DOM.item.dataset.decoTranslatey || 0,
                         rotate: this.DOM.item.dataset.decoRotate || 0,
                         opacity: 0,
+                    },
+                    background: {
+                        opacity: 0,
+                        // rotate: this.DOM.item.dataset.decoRotate || 0,
                     }
                 }
             };
@@ -190,8 +195,8 @@
                     this.isActive = true;
                     this.animate();
                 }, 75);                
-                this.background.style.backgroundColor = this.DOM.item.dataset.backgroundColor;
-                this.scrollbar.style.color = this.DOM.item.dataset.backgroundColor;
+                // this.background.style.backgroundColor = this.DOM.item.dataset.backgroundColor;
+                // this.scrollbar.style.color = this.DOM.item.dataset.backgroundColor;
             }
             this.closeAnimation = () => {
                 clearTimeout(this.mouseTimeout);
@@ -259,6 +264,7 @@
             anime(this.getAnimeObj('path'));
             anime(this.getAnimeObj('image'));
             anime(this.getAnimeObj('deco'));
+            anime(this.getAnimeObj('background'));
         }
     }
 

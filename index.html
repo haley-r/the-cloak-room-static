@@ -22,8 +22,6 @@
     <script>document.documentElement.className = 'js';</script>
 </head>
 <body>
-    <!-- this element is given background color in main.js when animations are triggered -->
-    <div id="fullbackground"></div>
     <!-- svg definitions for expanding animated shapes -->
     <svg style="display: none;">
         <defs>  
@@ -85,6 +83,7 @@
                                                                         C388.07,0,500,111.93,500,250z" />
                             </g>
                         </svg>
+                        <div class="fullbackground" id="fullbackground-redorange"></div>
                     </div>
                     <img src="./images/cloak-room_logo.svg" title="The Cloak Room" alt="The Cloak Room" id="main-logo" />
                 </div>
@@ -121,7 +120,9 @@
             data-path-scaleX="8" data-path-scaleY="11" data-path-translateX="0" data-path-translateY="30"
             data-path-rotate="5" data-animation-image-duration="800" data-animation-image-easing="easeInOutQuad"
             data-image-elasticity="300" data-image-scaleX="2" data-image-scaleY="2" data-image-translateX="0"
-            data-image-translateY="-45" data-image-rotate="5" data-animation-deco-duration="700"
+            data-image-translateY="-45" data-image-rotate="5" 
+            data-background-opacity="1"
+            data-animation-deco-duration="700"
             data-animation-deco-easing="easeOutQuad" data-deco-elasticity="300" data-deco-scaleX="5" data-deco-scaleY="5"
             data-deco-translateX="-5" data-deco-translateY="-5" data-deco-rotate="2"
             data-background-color="#067c99"> 
@@ -137,6 +138,7 @@
                     <image class="item__img" xlink:href="./images/page1image-reduced600w.png" x="50" y="150" height="200px" width="400px" />
                 </g>
             </svg>
+            <div class="fullbackground" id="fullbackground-blue"></div>
         </div>
         <div class="intro-text page-text">
             <p><span>Introducing</span> the Mushroom Ottoman</p>
@@ -173,6 +175,7 @@
                     <image class="item__img" xlink:href="./images/page2image-reduced600w.png" x="0" y="0" width="100%" height="100%" />
                 </g>
             </svg>
+            <div class="fullbackground" id="fullbackground-green"></div>
         </div>
         <div class="page-text">
             <p>These comfortable classic mushroom ottomans will be the fungi of many a hangout or stay-in!</p>
@@ -211,6 +214,7 @@
                     <image class="item__img" xlink:href="./images/page3image-reduced600w.png" x="0" y="0" width="100%" height="100%" />
                 </g>
             </svg>
+            <div class="fullbackground" id="fullbackground-indigo"></div>
         </div>
         <div class="page-text">
             <p>Retro or contemporary, all of our ottomans have a psychedelic surprise under the cap...</p>
@@ -246,6 +250,7 @@
                     <image class="item__img" xlink:href="./images/page4image-reduced600w.png" x="0" y="0" width="100%" height="100%" />
                 </g>
             </svg>
+            <div class="fullbackground" id="fullbackground-fuschia"></div>
         </div>
         <div class="gillies-text">
             <p>psychedelic gillies!</p>
@@ -286,6 +291,7 @@
                     <image class="item__img" xlink:href="./images/page5image-reduced600w.png" x="-45" y="-192" width="150%" />
                 </g>
             </svg>
+            <div class="fullbackground" id="fullbackground-powder"></div>
         </div>
         <div class="page-text">
             <p>We believe variety is the spice of life and we know your space is your space. Browse our selection of ready-to-ship ottomans or get in touch about dreaming up something customized for you!</p>
