@@ -150,13 +150,16 @@
                         delay: this.DOM.item.dataset.animationPathDelay || 0,
                         easing: this.DOM.item.dataset.animationPathEasing || 'easeOutElastic',
                         elasticity: this.DOM.item.dataset.pathElasticity || 400,
-                        scaleX: this.DOM.item.dataset.pathScalex || 1,
-                        scaleY: this.DOM.item.dataset.pathScaley || 1,
+                        // scaleX: this.DOM.item.dataset.pathScalex || 1,
+                        // scaleY: this.DOM.item.dataset.pathScaley || 1,
+                        scaleX: 5,
+                        scaleY: 5,
                         translateX: this.DOM.item.dataset.pathTranslatex || 0,
                         translateY: this.DOM.item.dataset.pathTranslatey || 0,
                         rotate: this.DOM.item.dataset.pathRotate || 0,
-                        opacitystart: 1,
-                        opacityend: 1,
+                        // opacitystart: 1,
+                        // opacityend: 1,
+                        opacity: 1,
                     },
                     image: {
                         duration: this.DOM.item.dataset.animationImageDuration || 2000,
@@ -181,8 +184,9 @@
                         translateX: this.DOM.item.dataset.decoTranslatex || 0,
                         translateY: this.DOM.item.dataset.decoTranslatey || 0,
                         rotate: this.DOM.item.dataset.decoRotate || 0,
-                        opacitystart: 1,
-                        opacityend: 1,
+                        // opacitystart: 1,
+                        // opacityend: 0,
+                        opacity: 0,
                     },
                     background: {
                         duration: 0,
@@ -194,8 +198,9 @@
                         translateX: 0,
                         translateY: 0,
                         rotate: 0,
-                        opacitystart: 0,
-                        opacityend: 1,
+                        // opacitystart: 0,
+                        // opacityend: 1,
+                        opacity: 1,
                         // rotate: this.DOM.item.dataset.decoRotate || 0,
                     }
                 }
@@ -232,12 +237,12 @@
                     this.DOM.el.classList.remove("deactive");
                     this.initiateAnimation();
                 } 
-                // if (ratio < -.2 && ratio > .7){
-                //     this.DOM.offsetTopP.innerHTML = `deactivated ${target}`
-                //     this.DOM.el.classList.remove("active");
-                //     this.DOM.el.classList.add("deactive");
-                //     this.closeAnimation();
-                // }
+                if (ratio < -.2 && ratio > .7){
+                    this.DOM.offsetTopP.innerHTML = `deactivated ${target}`
+                    this.DOM.el.classList.remove("active");
+                    this.DOM.el.classList.add("deactive");
+                    this.closeAnimation();
+                }
 
                 let item=this.DOM.item;
                 let pagetext = this.DOM.pageText;
