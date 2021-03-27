@@ -37,33 +37,48 @@ body {
     /* display: none; */
     position: fixed;
     transition: opacity 2s ease-in-out;
-    background-blend-mode: multiply;
+    /* background-blend-mode: multiply; */
+    /* opacity: 0; */
 }
     #fullbackground-redorange{
         background-color: #ce2e0e;
-        /* opacity: 1; */
+        opacity: 0;
     }
     #fullbackground-blue{
         background-color: #067c99;
-        /* opacity: 1; */
-
+        opacity: 0;
     }
+        .active #fullbackground-blue{
+            opacity: 1;
+        }
     #fullbackground-green{
         background-color: #738d2d;
-        /* opacity: 1; */
+        opacity: 0;
     }
+    .active #fullbackground-green{
+            opacity: 1;
+        }
     #fullbackground-indigo{
         background-color: #466ee8;
-        /* opacity: 1; */
+        opacity: 0;
     }
+    .active #fullbackground-indigo{
+            opacity: 1;
+        }
     #fullbackground-fuschia{
         background-color: #db3f30;
-        /* opacity: 1; */
+        opacity: 0;
     }
+    .active #fullbackground-fuschia{
+            opacity: 1;
+        }
     #fullbackground-powder{
         background-color: #38a2c2;
-        /* opacity: 1; */
+        opacity: 0;
     }
+    .active #fullbackground-powder{
+            opacity: 1;
+        }
 a{
     color: inherit;
     text-decoration: none;
@@ -147,8 +162,8 @@ header h1, header p{
     .page .item{
         overflow: visible;
         opacity: 1;
-        transition: opacity 1s;
-        transition-delay: 0;
+        /* transition: opacity 1s; */
+        /* transition-delay: 0; */
         width: 100vw;
         position: relative;
         max-width: 500px;
