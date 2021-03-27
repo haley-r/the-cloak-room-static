@@ -155,7 +155,8 @@
                         translateX: this.DOM.item.dataset.pathTranslatex || 0,
                         translateY: this.DOM.item.dataset.pathTranslatey || 0,
                         rotate: this.DOM.item.dataset.pathRotate || 0,
-                        opacity: 1,
+                        opacitystart: 1,
+                        opacityend: 1,
                     },
                     image: {
                         duration: this.DOM.item.dataset.animationImageDuration || 2000,
@@ -167,7 +168,8 @@
                         translateX: this.DOM.item.dataset.imageTranslatex || 0,
                         translateY: this.DOM.item.dataset.imageTranslatey || 0,
                         rotate: this.DOM.item.dataset.imageRotate || 0,
-                        opacity: 1,
+                        opacitystart: 1,
+                        opacityend: 1,
                     },
                     deco: {
                         duration: this.DOM.item.dataset.animationDecoDuration || 2500,
@@ -179,10 +181,12 @@
                         translateX: this.DOM.item.dataset.decoTranslatex || 0,
                         translateY: this.DOM.item.dataset.decoTranslatey || 0,
                         rotate: this.DOM.item.dataset.decoRotate || 0,
-                        opacity: 0,
+                        opacitystart: 1,
+                        opacityend: 0,
                     },
                     background: {
-                        opacity: 0,
+                        opacitystart: 0,
+                        opacityend: 1,
                         // rotate: this.DOM.item.dataset.decoRotate || 0,
                     }
                 }
@@ -191,15 +195,16 @@
         }
         initEvents() {
             this.initiateAnimation = () => {
-                this.mouseTimeout = setTimeout(() => {
+                this.animationTimeout = setTimeout(() => {
                     this.isActive = true;
                     this.animate();
-                }, 75);                
+                }, 75);   
+                // don't do this color change, do by opacity instead.             
                 // this.background.style.backgroundColor = this.DOM.item.dataset.backgroundColor;
-                // this.scrollbar.style.color = this.DOM.item.dataset.backgroundColor;
+                this.scrollbar.style.color = this.DOM.item.dataset.backgroundColor;
             }
             this.closeAnimation = () => {
-                clearTimeout(this.mouseTimeout);
+                clearTimeout(this.animationTimeout);
                 if (this.isActive) {
                     this.isActive = false;
                     this.animate();
@@ -252,7 +257,12 @@
                 translateX: this.isActive ? this.CONFIG.animation[targetStr].translateX : 0,
                 translateY: this.isActive ? this.CONFIG.animation[targetStr].translateY : 0,
                 rotate: this.isActive ? this.CONFIG.animation[targetStr].rotate : 0,
-                opacity: this.isActive ? this.CONFIG.animation[targetStr].opacity : 1
+                opacity: this.isActive ? 
+                    // if its active, do this opacity:
+                    this.CONFIG.animation[targetStr].opacityend 
+                    : 
+                    // if it's not do this opacity:
+                    this.CONFIG.animation[targetStr].opacitystart
             };
             if (targetStr === 'path') {
                 animeOpts.d = this.isActive ? this.paths.end : this.paths.start;

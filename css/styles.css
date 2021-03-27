@@ -41,28 +41,28 @@ body {
 }
     #fullbackground-redorange{
         background-color: #ce2e0e;
-        opacity: 1;
+        /* opacity: 1; */
     }
     #fullbackground-blue{
         background-color: #067c99;
-        opacity: 1;
+        /* opacity: 1; */
 
     }
     #fullbackground-green{
         background-color: #738d2d;
-        opacity: 1;
+        /* opacity: 1; */
     }
     #fullbackground-indigo{
         background-color: #466ee8;
-        opacity: 1;
+        /* opacity: 1; */
     }
     #fullbackground-fuschia{
         background-color: #db3f30;
-        opacity: 1;
+        /* opacity: 1; */
     }
     #fullbackground-powder{
         background-color: #38a2c2;
-        opacity: 1;
+        /* opacity: 1; */
     }
 a{
     color: inherit;
