@@ -182,7 +182,7 @@
                         translateY: this.DOM.item.dataset.decoTranslatey || 0,
                         rotate: this.DOM.item.dataset.decoRotate || 0,
                         opacitystart: 1,
-                        opacityend: 0,
+                        opacityend: 1,
                     },
                     background: {
                         duration: 0,
@@ -231,12 +231,13 @@
                     this.DOM.el.classList.add("active");
                     this.DOM.el.classList.remove("deactive");
                     this.initiateAnimation();
-                } else{
-                    this.DOM.offsetTopP.innerHTML = `deactivated ${target}`
-                    this.DOM.el.classList.remove("active");
-                    this.DOM.el.classList.add("deactive");
-                    this.closeAnimation();
-                }
+                } 
+                // if (ratio < -.2 && ratio > .7){
+                //     this.DOM.offsetTopP.innerHTML = `deactivated ${target}`
+                //     this.DOM.el.classList.remove("active");
+                //     this.DOM.el.classList.add("deactive");
+                //     this.closeAnimation();
+                // }
 
                 let item=this.DOM.item;
                 let pagetext = this.DOM.pageText;
