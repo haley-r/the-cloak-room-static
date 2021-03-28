@@ -378,7 +378,7 @@ header h1, header p{
 }
 #contact-bottom{
     opacity: 1;
-    z-index: 100;
+    z-index: 1000;
     list-style-type: none;
     padding: 1em 0 5em 0;
     margin: 0;

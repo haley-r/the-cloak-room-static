@@ -200,7 +200,7 @@
                         rotate: 0,
                         // opacitystart: 0,
                         // opacityend: 1,
-                        opacity: 1,
+                        opacity: 0,
                         // rotate: this.DOM.item.dataset.decoRotate || 0,
                     }
                 }
